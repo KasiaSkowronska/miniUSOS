@@ -6,13 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.sql.*;
-
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("StudentScreen.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/StudentScreen.fxml"));
         primaryStage.setTitle("miniUSOS");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

@@ -1,5 +1,6 @@
 package miniUSOS;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,29 +9,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class StudentScreenController {
+public class StudentScreenController extends AbstractController{
 
 
     public AnchorPane mainPane;
 
 
+    @FXML
+    public void initialize(){
 
-
-    public void switchToGroup() throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource("GroupScreen.fxml"));
-        Scene groupScreen = new Scene(rootTopic);
-        Stage stage;
-        stage =(Stage) mainPane.getScene().getWindow();
-        stage.setScene(groupScreen);
-        stage.show();
+        mainField = mainPane;
     }
 
-    public void switchToCourse() throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource("CourseScreen.fxml"));
-        Scene groupScreen = new Scene(rootTopic);
-        Stage stage;
-        stage =(Stage) mainPane.getScene().getWindow();
-        stage.setScene(groupScreen);
-        stage.show();
-    }
+
+
 }
