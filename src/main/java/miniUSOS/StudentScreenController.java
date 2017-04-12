@@ -13,6 +13,9 @@ public class StudentScreenController {
 
     public AnchorPane mainPane;
 
+
+
+
     public void switchToGroup() throws IOException {
         Parent rootTopic = FXMLLoader.load(getClass().getResource("GroupScreen.fxml"));
         Scene groupScreen = new Scene(rootTopic);
