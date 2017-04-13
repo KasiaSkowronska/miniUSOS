@@ -46,7 +46,7 @@ public abstract class AbstractController {
     }
 
 
-    private static SessionFactory buildSessionFactory() {
+    protected static SessionFactory buildSessionFactory() {
         try {
             // Create the SessionFactory from hibernate.cfg.xml
             return new Configuration().configure().buildSessionFactory();
