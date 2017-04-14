@@ -21,39 +21,23 @@ public abstract class AbstractController {
     protected AnchorPane mainField;
 
     public void switchToStudent() throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource("/StudentScreen.fxml"));
-        Scene groupScreen = new Scene(rootTopic);
-        Stage stage;
-        stage =(Stage) mainField.getScene().getWindow();
-        stage.setScene(groupScreen);
-        stage.show();
+        switchWindow("/StudentScreen.fxml");
     }
 
     public void switchToGroup() throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource("/GroupScreen.fxml"));
-        Scene groupScreen = new Scene(rootTopic);
-        Stage stage;
-        stage =(Stage) mainField.getScene().getWindow();
-        stage.setScene(groupScreen);
-        stage.show();
+        switchWindow("/GroupScreen.fxml");
     }
 
     public void switchToCourse() throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource("/CourseScreen.fxml"));
-        Scene groupScreen = new Scene(rootTopic);
-        Stage stage;
-        stage =(Stage) mainField.getScene().getWindow();
-        stage.setScene(groupScreen);
-        stage.show();
+        switchWindow("/CourseScreen.fxml");
     }
 
     public void switchToLogging() throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource("/LoggingScreen.fxml"));
-        Scene groupScreen = new Scene(rootTopic);
-        Stage stage;
-        stage =(Stage) mainField.getScene().getWindow();
-        stage.setScene(groupScreen);
-        stage.show();
+        switchWindow("/LoggingScreen.fxml");
+    }
+
+    public void switchToNewUser() throws IOException {
+        switchWindow("/NewUserScreen.fxml");
     }
 
     public void switchWindow(String fxml_name) throws IOException {
