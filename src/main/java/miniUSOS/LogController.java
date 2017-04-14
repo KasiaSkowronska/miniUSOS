@@ -1,5 +1,7 @@
 package miniUSOS;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -33,6 +35,7 @@ public class LogController extends AbstractController {
 
         mainField = mainPane;
         loadList();
+        setListProperty();
     }
 
     public void logIn() throws IOException {
@@ -49,6 +52,16 @@ public class LogController extends AbstractController {
             items.add(student.getNick());
         }
         userList.setItems(items);
+    }
+
+    public void setListProperty(){
+        userList.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<String>() {
+                    public void changed(ObservableValue<? extends String> ov,
+                                        String old_val, String new_val) {
+                        loginField.setText(new_val);
+                    }
+                });
     }
 
 
