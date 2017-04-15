@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -34,8 +31,8 @@ public class LogController extends AbstractController {
     public void initialize(){
 
         mainField = mainPane;
-        loadList();
         setListProperty();
+        loadList();
     }
 
     public void logIn() throws IOException {
@@ -47,19 +44,32 @@ public class LogController extends AbstractController {
 
     public void loadList(){
         List<Student> students = retrieveStudents();
-        ObservableList<String> items = FXCollections.observableArrayList();
+        ObservableList<Student> items = FXCollections.observableArrayList();
         for (Student student : students) {
-            items.add(student.getNick());
+            items.add(student);
         }
         userList.setItems(items);
     }
 
     public void setListProperty(){
+        userList.setCellFactory(param -> new ListCell<Student>() {
+            @Override
+            protected void updateItem(Student item, boolean empty) {
+                super.updateItem(item, empty);
+
+                if (empty || item == null || item.getNick() == null) {
+                    setText(null);
+                } else {
+                    setText(item.getNick());
+                }
+            }
+        });
         userList.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<String>() {
-                    public void changed(ObservableValue<? extends String> ov,
-                                        String old_val, String new_val) {
-                        loginField.setText(new_val);
+                new ChangeListener() {
+                    @Override
+                    public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                        Student student = (Student) newValue;
+                        loginField.setText(student.getNick());
                     }
                 });
     }
