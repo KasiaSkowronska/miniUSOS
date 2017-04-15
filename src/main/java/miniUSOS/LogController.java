@@ -5,14 +5,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import org.hibernate.SessionFactory;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
@@ -36,10 +33,14 @@ public class LogController extends AbstractController {
     }
 
     public void logIn() throws IOException {
-        Student loggedStudent = new Student();
-        loggedStudent.setName(loginField.getText());
-        Context.getInstance().setLoggedStudent(loggedStudent);
-        switchToStudent();
+        if (verifyStudent(loginField.getText(), PasswordField.getText())) {
+            Student loggedStudent = new Student();
+            loggedStudent.setName(loginField.getText());
+            Context.getInstance().setLoggedStudent(loggedStudent);
+            switchToStudent();
+        } else {
+            System.out.println("Złe hasło lub login");
+        }
     }
 
     public void loadList(){
@@ -57,10 +58,10 @@ public class LogController extends AbstractController {
             protected void updateItem(Student item, boolean empty) {
                 super.updateItem(item, empty);
 
-                if (empty || item == null || item.getNick() == null) {
+                if (empty || item == null || item.getName() == null) {
                     setText(null);
                 } else {
-                    setText(item.getNick());
+                    setText(item.getName());
                 }
             }
         });
@@ -69,9 +70,30 @@ public class LogController extends AbstractController {
                     @Override
                     public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                         Student student = (Student) newValue;
-                        loginField.setText(student.getNick());
+                        loginField.setText(student.getName());
                     }
                 });
+    }
+
+
+    public boolean verifyStudent(String studentName, String password){
+
+        SessionFactory sf = buildSessionFactory();
+        EntityManager em = sf.createEntityManager();
+        em.getTransaction().begin();
+        List<Student> students = em.createQuery("from Student where name=:studentName")
+                .setParameter("studentName", studentName)
+                .getResultList();
+        em.getTransaction().commit();
+        em.close();
+        sf.close();
+        for (Student student : students) {
+            if (student.getPassword().equals(password)) {
+                return true;
+            }
+            System.out.println("hasło to: " + student.getPassword());
+        }
+        return false;
     }
 
 

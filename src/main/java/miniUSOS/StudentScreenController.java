@@ -5,11 +5,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import org.hibernate.SessionFactory;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class StudentScreenController extends AbstractController{
 
@@ -25,7 +22,7 @@ public class StudentScreenController extends AbstractController{
         mainField = mainPane;
         Image image = new Image("/konik.jpg");
         imageView.setImage(image);
-        nameField.setText(Context.getInstance().getLoggedStudent().getNick());
+        nameField.setText(Context.getInstance().getLoggedStudent().getName());
     }
 
 

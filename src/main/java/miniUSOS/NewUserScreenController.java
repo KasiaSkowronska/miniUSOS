@@ -28,6 +28,7 @@ public class NewUserScreenController extends AbstractController{
     public void addStudent() throws IOException {
         Student student = new Student();
         student.setName(nameField.getText());
+        student.setPassword(passwordField.getText());
         SessionFactory sf = buildSessionFactory();
         EntityManager em = sf.createEntityManager();
         em.getTransaction().begin();
