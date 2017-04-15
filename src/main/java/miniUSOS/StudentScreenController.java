@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.EntityManager;
+import java.io.IOException;
 import java.sql.SQLException;
 
 public class StudentScreenController extends AbstractController{
@@ -27,16 +28,10 @@ public class StudentScreenController extends AbstractController{
         nameField.setText(Context.getInstance().getLoggedStudent().getNick());
     }
 
-    public void createStudent() throws SQLException {
-        Student student = new Student();
-        student.setName("Konrad");
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(student);
-        em.getTransaction().commit();
-        em.close();
-        sf.close();
+
+    public void logOut() throws IOException {
+        Context.getInstance().setLoggedStudent(null);
+        switchToLogging();
     }
 
 

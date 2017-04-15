@@ -22,7 +22,7 @@
             <Button layoutX="316.0" layoutY="69.0" mnemonicParsing="false" onAction="#switchToCourse" text="Katalog" />
             <Label layoutX="27.0" layoutY="25.0" text="Okno studenta" />
             <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="438.0" layoutY="328.0" mnemonicParsing="false" onAction="#createStudent" text="Dodaj studenta" />
+            <Button layoutX="27.0" layoutY="345.0" mnemonicParsing="false" onAction="#logOut" text="Wyloguj" />
             <Label fx:id="nameField" layoutX="137.0" layoutY="215.0" text="Label" />
             <Label layoutX="33.0" layoutY="214.0" text="Zalogowano:" />
          </children>
