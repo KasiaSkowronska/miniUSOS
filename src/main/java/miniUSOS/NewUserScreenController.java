@@ -26,16 +26,8 @@ public class NewUserScreenController extends AbstractController{
 
 
     public void addStudent() throws IOException {
-        Student student = new Student();
-        student.setName(nameField.getText());
-        student.setPassword(passwordField.getText());
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(student);
-        em.getTransaction().commit();
-        em.close();
-        sf.close();
+        // TODO: Save student to a group.
+        System.out.println("This function is not implemented yet");
         switchWindow("/LoggingScreen.fxml");
 
     }

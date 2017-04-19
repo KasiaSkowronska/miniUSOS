@@ -20,6 +20,8 @@
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
     <mapping class="miniUSOS.Student"/>
+    <mapping class="miniUSOS.Group" />
+    <mapping class="miniUSOS.Course" />
 
 
 

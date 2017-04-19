@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,12 +41,16 @@ public abstract class AbstractController {
         switchWindow("/NewUserScreen.fxml");
     }
 
+    public void switchToNewCourse() throws IOException {
+        switchWindow("/NewCourseScreen.fxml");
+    }
+
     public void switchWindow(String fxml_name) throws IOException {
         Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name));
-        Scene groupScreen = new Scene(rootTopic);
+        Scene screen = new Scene(rootTopic);
         Stage stage;
-        stage =(Stage) mainField.getScene().getWindow();
-        stage.setScene(groupScreen);
+        stage = (Stage) mainField.getScene().getWindow();
+        stage.setScene(screen);
         stage.show();
     }
 
@@ -70,5 +75,62 @@ public abstract class AbstractController {
         em.close();
         sf.close();
         return students;
+    }
+
+    public List<Course> retrieveCourses() {
+        SessionFactory sf = buildSessionFactory();
+        EntityManager em = sf.createEntityManager();
+        em.getTransaction().begin();
+        List<Course> courses = em.createQuery("from Course").getResultList();
+        em.getTransaction().commit();
+        em.close();
+        sf.close();
+        return courses;
+    }
+
+    public List<Group> retrieveGroups(Student student) {
+        SessionFactory sf = buildSessionFactory();
+        EntityManager em = sf.createEntityManager();
+        em.getTransaction().begin();
+        List<Group> groups = em.createQuery("from Group").getResultList();
+        List<Group> studentGroups = new ArrayList<Group>();
+        for (Group group : groups){ // should be done in database query instead of this
+            if (group.getStudents().contains(student)) studentGroups.add(group);
+        }
+        em.getTransaction().commit();
+        em.close();
+        sf.close();
+        return studentGroups;
+    }
+
+//    public void removeCourse(Course course) {
+//        SessionFactory sf = buildSessionFactory();
+//        EntityManager em = sf.createEntityManager();
+//        em.getTransaction().begin();
+//        em.createQuery("delete from COURSES where id = " + course.getName()).getResultList();
+//        em.getTransaction().commit();
+//        System.out.println("Usunięto + " + course.getName());
+//        em.close();
+//        sf.close();
+//    }
+
+
+    public boolean verifyStudent(String studentName, String password){
+        SessionFactory sf = buildSessionFactory();
+        EntityManager em = sf.createEntityManager();
+        em.getTransaction().begin();
+        List<Student> students = em.createQuery("from Student where name=:studentName")
+                .setParameter("studentName", studentName)
+                .getResultList();
+        em.getTransaction().commit();
+        em.close();
+        sf.close();
+        for (Student student : students) {
+            if (student.getPassword().equals(password)) {
+                return true;
+            }
+//            System.out.println("hasło to: " + student.getPassword());
+        }
+        return false;
     }
 }

@@ -1,4 +1,43 @@
+/*C6*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
+/*C7*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
+/*C8*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
 /*C9*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
 DISCONNECT
 /*C10*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
+/*C11*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+INSERT INTO GROUPS VALUES(14,'Lingwistyka')
+INSERT INTO COURSES VALUES(14,30,4,'Lingwistyka','NKJP, LFG itp.',14)
+COMMIT
+DISCONNECT
+/*C12*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
+/*C13*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
+/*C14*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
+DISCONNECT
+/*C15*/SET SCHEMA PUBLIC
+alter table COURSES drop constraint UK_7j6e1umk5114f6pifs1mfos8f
+alter table COURSES add constraint UK_7j6e1umk5114f6pifs1mfos8f unique (group_ID)
 DISCONNECT

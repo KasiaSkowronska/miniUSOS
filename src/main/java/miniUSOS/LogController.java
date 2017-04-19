@@ -4,8 +4,12 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import org.hibernate.SessionFactory;
 
@@ -19,27 +23,58 @@ import java.util.List;
 public class LogController extends AbstractController {
 
     public TextField loginField;
-    public TextField PasswordField;
+    public PasswordField passwordField;
     public Button loggingButton;
     public AnchorPane mainPane;
     public ListView userList;
 
     @FXML
     public void initialize(){
-
         mainField = mainPane;
         setListProperty();
         loadList();
+        setEnterLogging(passwordField);
+        setEnterLogging(loginField);
+        setEnterLogging(mainPane);
+    }
+
+    public void setEnterLogging(Parent field) {
+        field.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent ke) {
+                if (ke.getCode().equals(KeyCode.ENTER)) {
+                    try {
+                        logIn();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     public void logIn() throws IOException {
-        if (verifyStudent(loginField.getText(), PasswordField.getText())) {
+        if (verifyStudent(loginField.getText(), passwordField.getText())) {
             Student loggedStudent = new Student();
             loggedStudent.setName(loginField.getText());
             Context.getInstance().setLoggedStudent(loggedStudent);
             switchToStudent();
         } else {
-            System.out.println("Złe hasło lub login");
+            showAlert();
+        }
+    }
+
+    private void showAlert() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Wrong password for " + loginField.getText() +
+                "."  + " Would you like to try again?",
+                ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+        alert.showAndWait();
+        if (alert.getResult() == ButtonType.YES) {
+            passwordField.setText("");
+        }
+        if (alert.getResult() == ButtonType.NO) {
+            loginField.setText("");
+            passwordField.setText("");
         }
     }
 
@@ -73,27 +108,6 @@ public class LogController extends AbstractController {
                         loginField.setText(student.getName());
                     }
                 });
-    }
-
-
-    public boolean verifyStudent(String studentName, String password){
-
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
-        em.getTransaction().begin();
-        List<Student> students = em.createQuery("from Student where name=:studentName")
-                .setParameter("studentName", studentName)
-                .getResultList();
-        em.getTransaction().commit();
-        em.close();
-        sf.close();
-        for (Student student : students) {
-            if (student.getPassword().equals(password)) {
-                return true;
-            }
-            System.out.println("hasło to: " + student.getPassword());
-        }
-        return false;
     }
 
 
