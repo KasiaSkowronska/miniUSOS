@@ -4,15 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import org.hibernate.SessionFactory;
 
 import javax.persistence.EntityManager;
-
 import java.io.IOException;
-import java.util.HashSet;
-
-import static miniUSOS.AbstractController.buildSessionFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kosss on 19.04.2017.
@@ -36,20 +32,19 @@ public class NewCourseController extends AbstractController {
         course.setSylabus(sylabusField.getText());
         course.setName(nameField.getText());
 
+        List<Group> groups = new ArrayList<>();
         Group group = new Group();
         group.setName(nameField.getText());
-        group.setStudents(new HashSet<Student>());
+        group.setStudents(new ArrayList<Student>());
         group.setCourse(course);
-        course.setGroup(group);
+        groups.add(group);
+        course.setGroups(groups);
 
-
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(course);
-        em.getTransaction().commit();
-        em.close();
-        sf.close();
+        EntityManager em = PersistenceService.getEntityManager();
+        PersistenceService.runTransactional(() -> {
+            groups.forEach(em::persist);
+            em.persist(course);
+        });
         switchWindow("/CourseScreen.fxml");
     }
 

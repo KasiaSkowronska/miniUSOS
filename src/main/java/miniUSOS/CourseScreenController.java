@@ -46,10 +46,22 @@ public class CourseScreenController extends AbstractController {
     }
 
     public void registerToCourse(ActionEvent actionEvent) {
+        // TODO: check does it is implemented well
         Student activeStudent = Context.getInstance().getLoggedStudent();
-        Group activeGroup = activeCourse.getGroup();
-        // TODO: Save it to database
-        System.out.println("This function is not implemented yet.");
+        if (activeCourse == null) {
+            System.out.println("Kurs to null");
+        }
+        Group activeGroup = activeCourse.getGroups().get(0); // should be changed to group choosing
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        String studentName = activeStudent.getName();
+        List<Student> students = em.createQuery("from Student where name=:studentName")
+                .setParameter("studentName", studentName)
+                .getResultList();
+        Student dbStudent = students.get(0);
+        dbStudent.getGroups().add(activeGroup);
+        em.persist(dbStudent);
+        em.getTransaction().commit();
     }
 
     public void addCourse(ActionEvent actionEvent) throws IOException {
@@ -57,7 +69,7 @@ public class CourseScreenController extends AbstractController {
     }
 
     public void removeCourse(ActionEvent actionEvent){
-
+        removeCourse(activeCourse);
     }
 
     public void loadList(){

@@ -55,8 +55,7 @@ public class LogController extends AbstractController {
 
     public void logIn() throws IOException {
         if (verifyStudent(loginField.getText(), passwordField.getText())) {
-            Student loggedStudent = new Student();
-            loggedStudent.setName(loginField.getText());
+            Student loggedStudent = retrieveStudent(loginField.getText());
             Context.getInstance().setLoggedStudent(loggedStudent);
             switchToStudent();
         } else {
@@ -109,7 +108,6 @@ public class LogController extends AbstractController {
                     }
                 });
     }
-
 
     public void showDialog() throws IOException {
         switchWindow("/NewUserScreen.fxml");

@@ -55,76 +55,60 @@ public abstract class AbstractController {
     }
 
 
-    protected static SessionFactory buildSessionFactory() {
-        try {
-            // Create the SessionFactory from hibernate.cfg.xml
-            return new Configuration().configure().buildSessionFactory();
-        } catch (Throwable ex) {
-            // Make sure you log the exception, as it might be swallowed
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
+
 
     public List<Student> retrieveStudents() {
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
+        EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
         List<Student> students = em.createQuery("from Student").getResultList();
         em.getTransaction().commit();
-        em.close();
-        sf.close();
         return students;
     }
 
     public List<Course> retrieveCourses() {
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
+        EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
         List<Course> courses = em.createQuery("from Course").getResultList();
         em.getTransaction().commit();
-        em.close();
-        sf.close();
         return courses;
     }
 
     public List<Group> retrieveGroups(Student student) {
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
+        EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
         List<Group> groups = em.createQuery("from Group").getResultList();
         List<Group> studentGroups = new ArrayList<Group>();
-        for (Group group : groups){ // should be done in database query instead of this
+        for (Group group : groups){ // should rather be done in database query
             if (group.getStudents().contains(student)) studentGroups.add(group);
         }
         em.getTransaction().commit();
-        em.close();
-        sf.close();
         return studentGroups;
     }
 
-//    public void removeCourse(Course course) {
-//        SessionFactory sf = buildSessionFactory();
-//        EntityManager em = sf.createEntityManager();
-//        em.getTransaction().begin();
-//        em.createQuery("delete from COURSES where id = " + course.getName()).getResultList();
-//        em.getTransaction().commit();
-//        System.out.println("Usunięto + " + course.getName());
-//        em.close();
-//        sf.close();
-//    }
+    public Student retrieveStudent(String username) {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        Student s = (Student) em.createQuery("from Student where name = :name").setParameter("name", username).getSingleResult();
+        em.getTransaction().commit();
+        return s;
+    }
+
+    public void removeCourse(Course course) {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        em.createQuery("delete from Course where name = " + course.getName()).getResultList();
+        em.getTransaction().commit();
+        System.out.println("Usunięto + " + course.getName());
+    }
 
 
-    public boolean verifyStudent(String studentName, String password){
-        SessionFactory sf = buildSessionFactory();
-        EntityManager em = sf.createEntityManager();
+    public boolean verifyStudent(String studentName, String password) {
+        EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
         List<Student> students = em.createQuery("from Student where name=:studentName")
                 .setParameter("studentName", studentName)
                 .getResultList();
         em.getTransaction().commit();
-        em.close();
-        sf.close();
         for (Student student : students) {
             if (student.getPassword().equals(password)) {
                 return true;

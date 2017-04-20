@@ -15,7 +15,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Kasia on 06.04.2017.
@@ -25,6 +27,7 @@ public class GroupScreenController extends AbstractController {
     public AnchorPane mainPane;
     public ListView groupList;
     protected String activeGroup;
+    protected Student activeStudent;
 
     @FXML
     public void initialize(){
@@ -38,7 +41,7 @@ public class GroupScreenController extends AbstractController {
     }
 
     public void loadList(){
-        List<Group> groups = retrieveGroups(Context.getInstance().getLoggedStudent());
+        List<Group> groups = new ArrayList<>(Context.getInstance().getLoggedStudent().getGroups());
         ObservableList<Group> items = FXCollections.observableArrayList();
         for (Group group : groups) {
             items.add(group);

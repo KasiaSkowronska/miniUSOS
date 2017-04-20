@@ -1,7 +1,9 @@
 package miniUSOS;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -22,10 +24,9 @@ public class Group {
 
     @ManyToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
     @JoinTable(name = "GROUP_STUDENTS",
-            joinColumns = @JoinColumn(name="groups"),
-            inverseJoinColumns = @JoinColumn(name = "students"))
-    protected Set<Student> students = new HashSet<>();
-
+        joinColumns = @JoinColumn(name="gid"),
+        inverseJoinColumns = @JoinColumn(name = "sid"))
+    protected List<Student> students = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -43,11 +44,11 @@ public class Group {
         this.name = name;
     }
 
-    public Set<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(Set<Student> students) {
+    public void setStudents(List<Student> students) {
         this.students = students;
     }
 
@@ -71,6 +72,8 @@ public class Group {
         this.course = course;
     }
 
-    @OneToOne(mappedBy = "group", optional = false)
-    private Course course;
+    @ManyToOne(targetEntity = Course.class, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "COURSE")
+    protected Course course;
+
 }

@@ -1,7 +1,9 @@
 package miniUSOS;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -28,9 +30,8 @@ public class Course {
     @Column(name = "sylabus")
     protected String sylabus;
 
-    @OneToOne(targetEntity = Group.class, cascade = CascadeType.ALL, optional = false)
-    protected Group group;
-
+    @OneToMany(targetEntity = Group.class, mappedBy = "course", cascade = CascadeType.ALL)
+    protected List<Group> groups = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -72,11 +73,11 @@ public class Course {
         this.abundance = abundance;
     }
 
-    public Group getGroup() {
-        return group;
+    public List<Group> getGroups() {
+        return groups;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
     }
 }

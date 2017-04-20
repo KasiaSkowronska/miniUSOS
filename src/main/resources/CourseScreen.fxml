@@ -27,5 +27,6 @@
             <TextField fx:id="sylabusField" layoutX="60.0" layoutY="116.0" prefHeight="89.0" prefWidth="149.0" />
          </children>
       </Pane>
+      <Button layoutX="133.0" layoutY="355.0" mnemonicParsing="false" onAction="#removeCourse" prefHeight="25.0" prefWidth="106.0" text="Usuń przedmiot" />
    </children>
 </AnchorPane>

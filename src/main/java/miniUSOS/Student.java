@@ -24,10 +24,10 @@ public class Student {
     @Column(name = "PASSWORD")
     private String password;
 
-    @ManyToMany(targetEntity = Group.class, cascade = CascadeType.ALL)
+    @ManyToMany(targetEntity = Group.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "GROUP_STUDENTS",
-            joinColumns = @JoinColumn(name="students"),
-            inverseJoinColumns = @JoinColumn(name = "groups"))
+        joinColumns = @JoinColumn(name="sid"),
+        inverseJoinColumns = @JoinColumn(name = "gid"))
     protected Set<Group> groups = new HashSet<>();
 
     public Set<Group> getGroups() { return groups; }
