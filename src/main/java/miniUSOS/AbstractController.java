@@ -142,4 +142,9 @@ public abstract class AbstractController {
         }
         return false;
     }
+
+    public void logOut() throws IOException {
+        Context.getInstance().setLoggedStudent(null);
+        switchToLogging();
+    }
 }

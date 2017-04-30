@@ -23,6 +23,7 @@ public class NewCourseController extends AbstractController {
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/NewCourseScreen.fxml";
     }
 
     public void addCourse(ActionEvent actionEvent) throws IOException {

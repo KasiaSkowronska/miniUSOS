@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.StudentScreenController">
    <columnConstraints>
@@ -22,8 +23,6 @@
    <children>
       <AnchorPane fx:id="mainPane" prefHeight="419.0" prefWidth="600.0">
          <children>
-            <Button layoutX="483.0" layoutY="141.0" mnemonicParsing="false" onAction="#switchToGroup" text="%groups" />
-            <Button layoutX="478.0" layoutY="96.0" mnemonicParsing="false" onAction="#switchToCourse" text="%directory" />
             <Label layoutX="33.0" layoutY="21.0" text="%studentScreen" />
             <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="nameField" layoutX="127.0" layoutY="214.0" text="Label" />
@@ -44,6 +43,12 @@
                 </Menu>
               </menus>
             </MenuBar>
+            <VBox layoutX="478.0" layoutY="70.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#switchToCourse" prefHeight="26.0" prefWidth="109.0" text="%directory" />
+                  <Button mnemonicParsing="false" onAction="#switchToGroup" prefHeight="26.0" prefWidth="115.0" text="%groups" />
+               </children>
+            </VBox>
          </children>
       </AnchorPane>
    </children>

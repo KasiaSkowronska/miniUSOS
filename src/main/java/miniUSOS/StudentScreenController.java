@@ -28,10 +28,6 @@ public class StudentScreenController extends AbstractController{
     }
 
 
-    public void logOut() throws IOException {
-        Context.getInstance().setLoggedStudent(null);
-        switchToLogging();
-    }
 
 
 

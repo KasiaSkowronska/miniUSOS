@@ -37,6 +37,7 @@ public class CourseScreenController extends AbstractController {
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/CourseScreen.fxml";
         vievCourses();
     }
 

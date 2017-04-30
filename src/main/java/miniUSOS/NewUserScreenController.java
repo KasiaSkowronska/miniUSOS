@@ -22,6 +22,7 @@ public class NewUserScreenController extends AbstractController{
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/NewUserScreen.fxml";
     }
 
 
