@@ -13,6 +13,8 @@ import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Created by Kasia on 06.04.2017.
@@ -20,6 +22,7 @@ import java.util.List;
 public abstract class AbstractController {
 
     protected AnchorPane mainField;
+    protected String fxml;
 
     public void switchToStudent() throws IOException {
         switchWindow("/StudentScreen.fxml");
@@ -46,7 +49,8 @@ public abstract class AbstractController {
     }
 
     public void switchWindow(String fxml_name) throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name));
+        ResourceBundle bundle = ResourceBundle.getBundle("ooo", Context.getInstance().getCurrentLocale());
+        Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name), bundle);
         Scene screen = new Scene(rootTopic);
         Stage stage;
         stage = (Stage) mainField.getScene().getWindow();
@@ -55,6 +59,9 @@ public abstract class AbstractController {
     }
 
 
+    public void reload() throws IOException {
+        switchWindow(fxml);
+    }
 
 
     public List<Student> retrieveStudents() {
