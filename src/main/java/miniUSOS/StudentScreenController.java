@@ -16,10 +16,12 @@ public class StudentScreenController extends AbstractController{
     public Label nameField;
 
 
+
     @FXML
     public void initialize(){
 
         mainField = mainPane;
+        fxml = "/StudentScreen.fxml";
         Image image = new Image("/konik.jpg");
         imageView.setImage(image);
         nameField.setText(Context.getInstance().getLoggedStudent().getName());

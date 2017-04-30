@@ -49,7 +49,7 @@ public abstract class AbstractController {
     }
 
     public void switchWindow(String fxml_name) throws IOException {
-        ResourceBundle bundle = ResourceBundle.getBundle("ooo", Context.getInstance().getCurrentLocale());
+        ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
         Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name), bundle);
         Scene screen = new Scene(rootTopic);
         Stage stage;
@@ -61,6 +61,24 @@ public abstract class AbstractController {
 
     public void reload() throws IOException {
         switchWindow(fxml);
+    }
+
+    public void changeToEnglish() throws IOException {
+        Locale newLocale = new Locale("");
+        Context.getInstance().setCurrentLocale(newLocale);
+        reload();
+    }
+
+    public void changeToPolish() throws IOException {
+        Locale newLocale = new Locale("pl");
+        Context.getInstance().setCurrentLocale(newLocale);
+        reload();
+    }
+
+    public void changeToSpanish() throws IOException {
+        Locale newLocale = new Locale("es");
+        Context.getInstance().setCurrentLocale(newLocale);
+        reload();
     }
 
 

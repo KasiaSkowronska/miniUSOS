@@ -32,6 +32,7 @@ public class GroupScreenController extends AbstractController {
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/GroupScreen.fxml";
         vievGroups();
     }
 

@@ -15,8 +15,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader();
-        Context.getInstance().setCurrentLocale(new Locale("pl"));
-        ResourceBundle bundle = ResourceBundle.getBundle("ooo", Context.getInstance().getCurrentLocale());
+        //Context.getInstance().setCurrentLocale(new Locale("pl"));
+        Context.getInstance().setCurrentLocale(new Locale(""));
+        ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
         Parent root = loader.load(getClass().getResource("/LoggingScreen.fxml"), bundle);
         primaryStage.setOnCloseRequest(e -> exitApp());
         primaryStage.setTitle("miniUSOS");

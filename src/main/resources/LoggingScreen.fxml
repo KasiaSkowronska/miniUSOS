@@ -1,41 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="mainPane" prefHeight="384.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.LogController">
    <children>
-      <TextField fx:id="loginField" layoutX="280.0" layoutY="209.0" />
-      <PasswordField fx:id="passwordField" layoutX="280.0" layoutY="250.0" />
+      <TextField fx:id="loginField" layoutX="280.0" layoutY="209.0" promptText="%login" />
+      <PasswordField fx:id="passwordField" layoutX="280.0" layoutY="250.0" promptText="%password" />
       <Button fx:id="loggingButton" layoutX="312.0" layoutY="290.0" mnemonicParsing="false" onAction="#logIn" text="%logButton" />
       <ListView fx:id="userList" layoutX="29.0" layoutY="61.0" prefHeight="243.0" prefWidth="200.0" />
-      <Button layoutX="29.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchToNewUser" text="Dodaj studenta" />
-      <MenuBar layoutX="338.0" layoutY="-1.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
+      <Button layoutX="29.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchToNewUser" text="%signUp" />
+      <MenuBar layoutX="339.0" layoutY="47.0" prefHeight="26.0" prefWidth="112.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="%language">
+               <items>
+                  <CheckMenuItem mnemonicParsing="false" onAction="#changeToPolish" text="Polski" />
+                  <CheckMenuItem mnemonicParsing="false" onAction="#changeToEnglish" text="English" />
+                  <CheckMenuItem mnemonicParsing="false" onAction="#changeToSpanish" text="Espanol" />
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
-      <Button fx:id="angButton" layoutX="324.0" layoutY="74.0" mnemonicParsing="false" onAction="#changeLang" text="ang" />
-      <Button layoutX="390.0" layoutY="61.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="44.0" text="pl" />
    </children>
 </AnchorPane>

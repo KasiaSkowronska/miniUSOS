@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -16,15 +20,30 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0">
+      <AnchorPane fx:id="mainPane" prefHeight="419.0" prefWidth="600.0">
          <children>
-            <Button layoutX="410.0" layoutY="69.0" mnemonicParsing="false" onAction="#switchToGroup" text="Grupy" />
-            <Button layoutX="316.0" layoutY="69.0" mnemonicParsing="false" onAction="#switchToCourse" text="Katalog" />
-            <Label layoutX="27.0" layoutY="25.0" text="Okno studenta" />
+            <Button layoutX="483.0" layoutY="141.0" mnemonicParsing="false" onAction="#switchToGroup" text="%groups" />
+            <Button layoutX="478.0" layoutY="96.0" mnemonicParsing="false" onAction="#switchToCourse" text="%directory" />
+            <Label layoutX="33.0" layoutY="21.0" text="%studentScreen" />
             <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true" />
-            <Button layoutX="27.0" layoutY="345.0" mnemonicParsing="false" onAction="#logOut" text="Wyloguj" />
-            <Label fx:id="nameField" layoutX="137.0" layoutY="215.0" text="Label" />
-            <Label layoutX="33.0" layoutY="214.0" text="Zalogowano:" />
+            <Label fx:id="nameField" layoutX="127.0" layoutY="214.0" text="Label" />
+            <Label layoutX="33.0" layoutY="214.0" text="%user" />
+            <MenuBar layoutX="424.0" layoutY="27.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="%language">
+                     <items>
+                        <CheckMenuItem mnemonicParsing="false" onAction="#changeToPolish" text="Polski" />
+                        <CheckMenuItem mnemonicParsing="false" onAction="#changeToEnglish" text="English" />
+                        <CheckMenuItem mnemonicParsing="false" onAction="#changeToSpanish" text="Espanol" />
+                     </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%user">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#logOut" text="%logOut" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
          </children>
       </AnchorPane>
    </children>

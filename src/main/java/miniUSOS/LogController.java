@@ -122,12 +122,6 @@ public class LogController extends AbstractController {
         switchWindow("/NewUserScreen.fxml");
     }
 
-    public void changeLang() throws IOException {
-        Locale newLocale = new Locale("es");
-        Context.getInstance().setCurrentLocale(newLocale);
-        reload();
-
-    }
 
 
 
