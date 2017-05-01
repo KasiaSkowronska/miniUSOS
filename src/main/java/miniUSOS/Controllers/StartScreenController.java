@@ -1,10 +1,12 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import miniUSOS.Context;
+import miniUSOS.Controllers.AbstractController;
 
 /**
  * Created by Kasia on 01.05.2017.
@@ -19,7 +21,7 @@ public class StartScreenController extends AbstractController {
     public void initialize(){
 
         mainField = mainPane;
-        fxml = "/StartScreen.fxml";
+        fxml = "/Screens/StartScreen.fxml";
         Image image = new Image("/konik.jpg");
         imageView.setImage(image);
         nameField.setText(Context.getInstance().getLoggedStudent().getName());

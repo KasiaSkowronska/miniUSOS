@@ -1,5 +1,7 @@
 package miniUSOS;
 
+import miniUSOS.Classes.Student;
+
 import java.util.Locale;
 import java.util.ResourceBundle;
 

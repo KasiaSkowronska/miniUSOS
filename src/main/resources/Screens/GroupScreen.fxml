@@ -5,7 +5,7 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.GroupScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.GroupScreenController">
    <children>
       <Button layoutX="459.0" layoutY="248.0" mnemonicParsing="false" onAction="#switchToStudent" text="Powrót do proflu" />
       <Label layoutX="80.0" layoutY="36.0" text="Lista grup studenta" />

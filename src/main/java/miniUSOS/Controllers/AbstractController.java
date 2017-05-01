@@ -1,4 +1,4 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 
 import javafx.fxml.FXMLLoader;
@@ -6,8 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import miniUSOS.*;
+import miniUSOS.Classes.Course;
+import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Student;
+import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
@@ -25,35 +28,35 @@ public abstract class AbstractController {
     protected String fxml;
 
     public void switchToStudent() throws IOException {
-        switchWindow("/StudentScreen.fxml");
+        switchWindow("/Screens/StudentScreen.fxml");
     }
 
     public void switchToGroup() throws IOException {
-        switchWindow("/GroupScreen.fxml");
+        switchWindow("/Screens/GroupScreen.fxml");
     }
 
     public void switchToCourse() throws IOException {
-        switchWindow("/CourseScreen.fxml");
+        switchWindow("/Screens/CourseScreen.fxml");
     }
 
     public void switchToLogging() throws IOException {
-        switchWindow("/LoggingScreen.fxml");
+        switchWindow("/Screens/LoggingScreen.fxml");
     }
 
     public void switchToNewUser() throws IOException {
-        switchWindow("/NewUserScreen.fxml");
+        switchWindow("/Screens/NewUserScreen.fxml");
     }
 
     public void switchToNewCourse() throws IOException {
-        switchWindow("/NewCourseScreen.fxml");
+        switchWindow("/Screens/NewCourseScreen.fxml");
     }
 
     public void switchToDirectory() throws IOException {
-        switchWindow("/DirectoryScreen.fxml");
+        switchWindow("/Screens/DirectoryScreen.fxml");
     }
 
     public void switchToStart() throws IOException {
-        switchWindow("/StartScreen.fxml");
+        switchWindow("/Screens/StartScreen.fxml");
     }
 
     public void switchWindow(String fxml_name) throws IOException {

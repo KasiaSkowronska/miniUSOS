@@ -1,11 +1,9 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
-import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -13,13 +11,11 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import org.hibernate.SessionFactory;
+import miniUSOS.Context;
+import miniUSOS.Classes.Student;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 /**
  * Created by Kasia on 13.04.2017.
@@ -38,7 +34,7 @@ public class LogController extends AbstractController {
     public void initialize(){
         //resources = Context.getInstance().getBundle();
         mainField = mainPane;
-        fxml = "/LoggingScreen.fxml";
+        fxml = "/Screens/LoggingScreen.fxml";
         setListProperty();
         loadList();
         setEnterLogging(passwordField);
@@ -125,7 +121,7 @@ public class LogController extends AbstractController {
     }
 
     public void showDialog() throws IOException {
-        switchWindow("/NewUserScreen.fxml");
+        switchWindow("/Screens/NewUserScreen.fxml");
     }
 
 

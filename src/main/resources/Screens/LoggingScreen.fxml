@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="384.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.LogController">
+<AnchorPane fx:id="mainPane" prefHeight="384.0" prefWidth="489.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.LogController">
    <children>
       <TextField fx:id="loginField" layoutX="280.0" layoutY="209.0" promptText="%login" />
       <PasswordField fx:id="passwordField" layoutX="280.0" layoutY="250.0" promptText="%password" />

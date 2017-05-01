@@ -18,7 +18,7 @@ public class Main extends Application {
         //Context.getInstance().setCurrentLocale(new Locale("pl"));
         Context.getInstance().setCurrentLocale(new Locale(""));
         ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
-        Parent root = loader.load(getClass().getResource("/LoggingScreen.fxml"), bundle);
+        Parent root = loader.load(getClass().getResource("/Screens/LoggingScreen.fxml"), bundle);
         primaryStage.setOnCloseRequest(e -> exitApp());
         primaryStage.setTitle("miniUSOS");
         primaryStage.setScene(new Scene(root));

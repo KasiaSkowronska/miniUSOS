@@ -20,9 +20,9 @@
     <property name="hibernate.enable_lazy_load_no_trans">true</property>
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
-    <mapping class="miniUSOS.Student"/>
-    <mapping class="miniUSOS.Group" />
-    <mapping class="miniUSOS.Course" />
+    <mapping class="miniUSOS.Classes.Student"/>
+    <mapping class="miniUSOS.Classes.Group" />
+    <mapping class="miniUSOS.Classes.Course" />
 
 
 
