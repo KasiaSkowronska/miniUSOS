@@ -64,7 +64,7 @@
             </HBox>
             <Pane prefHeight="37.0" prefWidth="200.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label layoutX="14.0" layoutY="11.0" text="%profile" />
+                  <Label layoutX="14.0" layoutY="9.0" styleClass="widget-header" text="%profile" />
                </children>
             </Pane>
          </children>
