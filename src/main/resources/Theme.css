@@ -1,0 +1,21 @@
+.background {
+    -fx-background-color: #FFFFFF;
+}
+
+.label-header {
+    -fx-font-size: 16pt;
+    -fx-font-family: "Helvetica Bold";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+
+.up-pane {
+    -fx-background-color: #E3E3E3;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+}
+
+.profile-pane {
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 2;
+}

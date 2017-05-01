@@ -10,9 +10,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.StudentScreenController">
+
+<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.DirectoryScreenController">
    <children>
-      <Pane prefHeight="93.0" prefWidth="724.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutY="177.0" prefHeight="93.0" prefWidth="724.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox alignment="CENTER" layoutY="66.0" prefHeight="26.0" prefWidth="724.0" spacing="5.0">
                <children>
@@ -22,24 +23,24 @@
                   <Button mnemonicParsing="false" onAction="#switchToGroup" prefHeight="26.0" prefWidth="115.0" text="%groups" />
                </children>
             </HBox>
-            <Label layoutX="29.0" layoutY="25.0" styleClass="label-header" text="%studentScreen" />
+            <Label layoutX="29.0" layoutY="25.0" styleClass="label-header" text="%directory" />
          </children>
       </Pane>
       <MenuBar layoutX="424.0" layoutY="27.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="%language">
+         <menus>
+            <Menu mnemonicParsing="false" text="%language">
                <items>
                   <CheckMenuItem mnemonicParsing="false" onAction="#changeToPolish" text="Polski" />
                   <CheckMenuItem mnemonicParsing="false" onAction="#changeToEnglish" text="English" />
                   <CheckMenuItem mnemonicParsing="false" onAction="#changeToSpanish" text="Espanol" />
                </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="%user">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#logOut" text="%logOut" />
-            </items>
-          </Menu>
-        </menus>
+            </Menu>
+            <Menu mnemonicParsing="false" text="%user">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#logOut" text="%logOut" />
+               </items>
+            </Menu>
+         </menus>
       </MenuBar>
    </children>
 </AnchorPane>

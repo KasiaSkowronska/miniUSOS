@@ -48,6 +48,14 @@ public abstract class AbstractController {
         switchWindow("/NewCourseScreen.fxml");
     }
 
+    public void switchToDirectory() throws IOException {
+        switchWindow("/DirectoryScreen.fxml");
+    }
+
+    public void switchToStart() throws IOException {
+        switchWindow("/StartScreen.fxml");
+    }
+
     public void switchWindow(String fxml_name) throws IOException {
         ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
         Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name), bundle);

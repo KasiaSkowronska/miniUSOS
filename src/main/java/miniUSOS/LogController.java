@@ -45,6 +45,7 @@ public class LogController extends AbstractController {
         setEnterLogging(loginField);
         setEnterLogging(mainPane);
         //loggingButton.setText(resources.getString("logButton"));
+        setAdmin();
     }
 
     public void setEnterLogging(Parent field) {
@@ -66,10 +67,15 @@ public class LogController extends AbstractController {
         if (verifyStudent(loginField.getText(), passwordField.getText())) {
             Student loggedStudent = retrieveStudent(loginField.getText());
             Context.getInstance().setLoggedStudent(loggedStudent);
-            switchToStudent();
+            switchToStart();
         } else {
             showAlert();
         }
+    }
+
+    public void setAdmin(){
+        loginField.setText("admin");
+        passwordField.setText("admin");
     }
 
     private void showAlert() {

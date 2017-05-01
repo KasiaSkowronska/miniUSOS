@@ -12,8 +12,6 @@ public class StudentScreenController extends AbstractController{
 
 
     public AnchorPane mainPane;
-    public ImageView imageView;
-    public Label nameField;
 
 
 
@@ -22,9 +20,6 @@ public class StudentScreenController extends AbstractController{
 
         mainField = mainPane;
         fxml = "/StudentScreen.fxml";
-        Image image = new Image("/konik.jpg");
-        imageView.setImage(image);
-        nameField.setText(Context.getInstance().getLoggedStudent().getName());
     }
 
 
