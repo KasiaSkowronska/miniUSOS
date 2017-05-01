@@ -1,11 +1,11 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import org.hibernate.SessionFactory;
+import miniUSOS.Utils.PersistenceService;
+import miniUSOS.Classes.Student;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by Kasia on 15.04.2017.
  */
-public class NewUserScreenController extends AbstractController{
+public class NewUserScreenController extends AbstractController {
     public TextField nameField;
     public Button signInButton;
     public TextField passwordField;
@@ -22,6 +22,7 @@ public class NewUserScreenController extends AbstractController{
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/Screens/NewUserScreen.fxml";
     }
 
 
@@ -33,6 +34,6 @@ public class NewUserScreenController extends AbstractController{
         em.getTransaction().begin();
         em.persist(student);
         em.getTransaction().commit();
-        switchWindow("/LoggingScreen.fxml");
+        switchWindow("/Screens/LoggingScreen.fxml");
     }
 }

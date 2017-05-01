@@ -1,4 +1,4 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,9 +11,9 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import org.hibernate.SessionFactory;
+import miniUSOS.Context;
+import miniUSOS.Classes.Student;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
 
@@ -27,15 +27,21 @@ public class LogController extends AbstractController {
     public Button loggingButton;
     public AnchorPane mainPane;
     public ListView userList;
+    public Button angButton;
+
 
     @FXML
     public void initialize(){
+        //resources = Context.getInstance().getBundle();
         mainField = mainPane;
+        fxml = "/Screens/LoggingScreen.fxml";
         setListProperty();
         loadList();
         setEnterLogging(passwordField);
         setEnterLogging(loginField);
         setEnterLogging(mainPane);
+        //loggingButton.setText(resources.getString("logButton"));
+        setAdmin();
     }
 
     public void setEnterLogging(Parent field) {
@@ -57,10 +63,15 @@ public class LogController extends AbstractController {
         if (verifyStudent(loginField.getText(), passwordField.getText())) {
             Student loggedStudent = retrieveStudent(loginField.getText());
             Context.getInstance().setLoggedStudent(loggedStudent);
-            switchToStudent();
+            switchToStart();
         } else {
             showAlert();
         }
+    }
+
+    public void setAdmin(){
+        loginField.setText("admin");
+        passwordField.setText("admin");
     }
 
     private void showAlert() {
@@ -110,6 +121,10 @@ public class LogController extends AbstractController {
     }
 
     public void showDialog() throws IOException {
-        switchWindow("/NewUserScreen.fxml");
+        switchWindow("/Screens/NewUserScreen.fxml");
     }
+
+
+
+
 }

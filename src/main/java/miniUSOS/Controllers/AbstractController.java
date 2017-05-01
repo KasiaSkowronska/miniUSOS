@@ -1,4 +1,4 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 
 import javafx.fxml.FXMLLoader;
@@ -6,13 +6,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
+import miniUSOS.*;
+import miniUSOS.Classes.Course;
+import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Student;
+import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * Created by Kasia on 06.04.2017.
@@ -20,33 +25,43 @@ import java.util.List;
 public abstract class AbstractController {
 
     protected AnchorPane mainField;
+    protected String fxml;
 
     public void switchToStudent() throws IOException {
-        switchWindow("/StudentScreen.fxml");
+        switchWindow("/Screens/StudentScreen.fxml");
     }
 
     public void switchToGroup() throws IOException {
-        switchWindow("/GroupScreen.fxml");
+        switchWindow("/Screens/GroupScreen.fxml");
     }
 
     public void switchToCourse() throws IOException {
-        switchWindow("/CourseScreen.fxml");
+        switchWindow("/Screens/CourseScreen.fxml");
     }
 
     public void switchToLogging() throws IOException {
-        switchWindow("/LoggingScreen.fxml");
+        switchWindow("/Screens/LoggingScreen.fxml");
     }
 
     public void switchToNewUser() throws IOException {
-        switchWindow("/NewUserScreen.fxml");
+        switchWindow("/Screens/NewUserScreen.fxml");
     }
 
     public void switchToNewCourse() throws IOException {
-        switchWindow("/NewCourseScreen.fxml");
+        switchWindow("/Screens/NewCourseScreen.fxml");
+    }
+
+    public void switchToDirectory() throws IOException {
+        switchWindow("/Screens/DirectoryScreen.fxml");
+    }
+
+    public void switchToStart() throws IOException {
+        switchWindow("/Screens/StartScreen.fxml");
     }
 
     public void switchWindow(String fxml_name) throws IOException {
-        Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name));
+        ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
+        Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name), bundle);
         Scene screen = new Scene(rootTopic);
         Stage stage;
         stage = (Stage) mainField.getScene().getWindow();
@@ -55,6 +70,27 @@ public abstract class AbstractController {
     }
 
 
+    public void reload() throws IOException {
+        switchWindow(fxml);
+    }
+
+    public void changeToEnglish() throws IOException {
+        Locale newLocale = new Locale("");
+        Context.getInstance().setCurrentLocale(newLocale);
+        reload();
+    }
+
+    public void changeToPolish() throws IOException {
+        Locale newLocale = new Locale("pl");
+        Context.getInstance().setCurrentLocale(newLocale);
+        reload();
+    }
+
+    public void changeToSpanish() throws IOException {
+        Locale newLocale = new Locale("es");
+        Context.getInstance().setCurrentLocale(newLocale);
+        reload();
+    }
 
 
     public List<Student> retrieveStudents() {
@@ -116,5 +152,10 @@ public abstract class AbstractController {
 //            System.out.println("hasło to: " + student.getPassword());
         }
         return false;
+    }
+
+    public void logOut() throws IOException {
+        Context.getInstance().setLoggedStudent(null);
+        switchToLogging();
     }
 }

@@ -1,4 +1,4 @@
-package miniUSOS;
+package miniUSOS.Utils;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

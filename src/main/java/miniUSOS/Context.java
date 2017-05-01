@@ -1,5 +1,10 @@
 package miniUSOS;
 
+import miniUSOS.Classes.Student;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 /**
  * Created by Kasia on 13.04.2017.
  */
@@ -11,6 +16,26 @@ public class Context {
     }
 
     private Student loggedStudent;
+
+    public Locale getCurrentLocale() {
+        return currentLocale;
+    }
+
+    public void setCurrentLocale(Locale currentLocale) {
+        this.currentLocale = currentLocale;
+    }
+
+    private Locale currentLocale;
+
+    public void setBundle(ResourceBundle bundle) {
+        this.bundle = bundle;
+    }
+
+    public ResourceBundle getBundle() {
+        return bundle;
+    }
+
+    private ResourceBundle bundle;
 
     public Student getLoggedStudent() {
         return loggedStudent;

@@ -1,9 +1,13 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import miniUSOS.Classes.Course;
+import miniUSOS.Classes.Group;
+import miniUSOS.Utils.PersistenceService;
+import miniUSOS.Classes.Student;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
@@ -23,6 +27,7 @@ public class NewCourseController extends AbstractController {
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/Screens/NewCourseScreen.fxml";
     }
 
     public void addCourse(ActionEvent actionEvent) throws IOException {
@@ -45,7 +50,7 @@ public class NewCourseController extends AbstractController {
             groups.forEach(em::persist);
             em.persist(course);
         });
-        switchWindow("/CourseScreen.fxml");
+        switchWindow("/Screens/CourseScreen.fxml");
     }
 
 }

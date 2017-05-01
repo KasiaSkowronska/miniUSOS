@@ -1,4 +1,6 @@
-package miniUSOS;
+package miniUSOS.Classes;
+
+import miniUSOS.Classes.Group;
 
 import javax.persistence.*;
 import java.util.HashSet;

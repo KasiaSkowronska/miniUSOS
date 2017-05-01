@@ -1,4 +1,4 @@
-package miniUSOS;
+package miniUSOS.Controllers;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -6,20 +6,19 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import org.hibernate.SessionFactory;
+import miniUSOS.*;
+import miniUSOS.Classes.Course;
+import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Student;
+import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Kasia on 06.04.2017.
@@ -37,6 +36,7 @@ public class CourseScreenController extends AbstractController {
     @FXML
     public void initialize(){
         mainField = mainPane;
+        fxml = "/Screens/CourseScreen.fxml";
         vievCourses();
     }
 
