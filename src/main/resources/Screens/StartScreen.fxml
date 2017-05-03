@@ -21,7 +21,7 @@
                   <Button mnemonicParsing="false" onAction="#switchToStart" prefHeight="26.0" prefWidth="115.0" text="%start" />
                   <Button mnemonicParsing="false" onAction="#switchToDirectory" prefHeight="26.0" prefWidth="115.0" text="%directory" />
                   <Button mnemonicParsing="false" onAction="#switchToStudent" prefHeight="26.0" prefWidth="115.0" text="%myUSOS" />
-                  <Button mnemonicParsing="false" onAction="#switchToGroup" prefHeight="26.0" prefWidth="115.0" text="%groups" />
+                  <Button mnemonicParsing="false" onAction="#switchToStaff" prefHeight="26.0" prefWidth="115.0" text="%staffSection" />
                </children>
             </HBox>
             <Label layoutX="29.0" layoutY="25.0" styleClass="label-header" text="%startScreen" />

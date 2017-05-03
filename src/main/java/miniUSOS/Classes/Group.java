@@ -8,6 +8,8 @@ import java.util.List;
  * Created by kosss on 19.04.2017.
  */
 
+// ID NUMBER TYPE TUTOR TIME
+
 @Entity
 @Table(name="GROUPS")
 public class Group {
@@ -17,14 +19,28 @@ public class Group {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 
-    @Column(name = "NAME")
-    protected String name;
+    @Column(name = "number")
+    protected Integer number;
+
+    @Column(name = "type")
+    protected String type;
+
+    @Column(name = "tutor")
+    protected String tutor;
+
+    @Column(name = "time")
+    protected String time;
 
     @ManyToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
     @JoinTable(name = "GROUP_STUDENTS",
         joinColumns = @JoinColumn(name="gid"),
         inverseJoinColumns = @JoinColumn(name = "sid"))
     protected List<Student> students = new ArrayList<>();
+
+    @ManyToOne(targetEntity = Course.class, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "COURSE")
+    protected Course course;
+
 
     public Integer getId() {
         return id;
@@ -34,13 +50,6 @@ public class Group {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public List<Student> getStudents() {
         return students;
@@ -54,11 +63,44 @@ public class Group {
         this.students.add(student);
     }
 
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public String getTutor() {
+        return tutor;
+    }
+
+    public void setTutor(String tutor) {
+        this.tutor = tutor;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+
     @Override
     public String toString() {
         return "Group{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", name='" + number + '\'' +
                 '}';
     }
 
@@ -70,8 +112,5 @@ public class Group {
         this.course = course;
     }
 
-    @ManyToOne(targetEntity = Course.class, cascade = CascadeType.ALL, optional = false)
-    @JoinColumn(name = "COURSE")
-    protected Course course;
 
 }

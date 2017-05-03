@@ -7,6 +7,9 @@ import java.util.List;
 /**
  * Created by kosss on 19.04.2017.
  */
+
+//ID NAME CODE FACULTY ECTS PLACES SYLABUS GROPUS
+
 @Entity
 @Table(name="COURSES")
 public class Course {
@@ -19,17 +22,44 @@ public class Course {
     @Column(name = "NAME")
     protected String name;
 
+    @Column(name = "code")
+    protected String code;
+
+    @Column(name = "faculty")
+    protected String faculty;
+
     @Column(name = "ects")
     protected int ects;
 
-    @Column(name = "abundance")
-    protected int abundance;
+    @Column(name = "places")
+    protected int places;
 
     @Column(name = "sylabus")
     protected String sylabus;
 
     @OneToMany(targetEntity = Group.class, mappedBy = "course", cascade = CascadeType.ALL)
     protected List<Group> groups = new ArrayList<>();
+
+
+
+
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
 
     public Integer getId() {
         return id;
@@ -63,12 +93,12 @@ public class Course {
         this.sylabus = sylabus;
     }
 
-    public int getAbundance() {
-        return abundance;
+    public int getPlaces() {
+        return places;
     }
 
-    public void setAbundance(int abundance) {
-        this.abundance = abundance;
+    public void setPlaces(int places) {
+        this.places = places;
     }
 
     public List<Group> getGroups() {
@@ -78,4 +108,10 @@ public class Course {
     public void setGroups(List<Group> groups) {
         this.groups = groups;
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

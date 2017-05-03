@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckMenuItem?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -23,7 +22,7 @@
                   <Button mnemonicParsing="false" onAction="#switchToStart" prefHeight="26.0" prefWidth="115.0" text="%start" />
                   <Button mnemonicParsing="false" onAction="#switchToDirectory" prefHeight="26.0" prefWidth="115.0" text="%directory" />
                   <Button mnemonicParsing="false" onAction="#switchToStudent" prefHeight="26.0" prefWidth="115.0" text="%myUSOS" />
-                  <Button mnemonicParsing="false" onAction="#switchToGroup" prefHeight="26.0" prefWidth="115.0" text="%groups" />
+                  <Button mnemonicParsing="false" onAction="#switchToStaff" prefHeight="26.0" prefWidth="115.0" text="%staffSection" />
                </children>
             </HBox>
             <Label layoutX="29.0" layoutY="25.0" styleClass="label-header" text="%studentScreen" />
@@ -45,7 +44,7 @@
           </Menu>
         </menus>
       </MenuBar>
-      <BorderPane layoutX="35.0" layoutY="129.0" prefHeight="375.0" prefWidth="204.0" styleClass="profile-pane">
+      <BorderPane layoutX="35.0" layoutY="129.0" prefHeight="375.0" prefWidth="410.0" styleClass="profile-pane">
          <top>
             <Pane prefHeight="36.0" prefWidth="200.0" styleClass="up-pane" BorderPane.alignment="CENTER">
                <children>
@@ -54,10 +53,16 @@
             </Pane>
          </top>
          <center>
-            <ListView fx:id="coursesList" prefHeight="200.0" prefWidth="202.0" BorderPane.alignment="CENTER" />
+            <TableView fx:id="studentCourseTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <columns>
+                <TableColumn fx:id="courseCol" prefWidth="167.0" text="%courseName" />
+                <TableColumn fx:id="groupIDCol" minWidth="0.0" prefWidth="84.0" text="%groupID" />
+                  <TableColumn fx:id="timeCol" prefWidth="153.0" text="%hour" />
+              </columns>
+            </TableView>
          </center>
       </BorderPane>
-      <BorderPane layoutX="269.0" layoutY="129.0" prefHeight="375.0" prefWidth="424.0" styleClass="profile-pane">
+      <BorderPane layoutX="523.0" layoutY="129.0" prefHeight="93.0" prefWidth="173.0" styleClass="profile-pane">
          <top>
             <Pane prefHeight="36.0" prefWidth="200.0" styleClass="up-pane" BorderPane.alignment="CENTER">
                <children>
@@ -66,7 +71,7 @@
             </Pane>
          </top>
          <center>
-            <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView prefHeight="107.0" prefWidth="355.0" BorderPane.alignment="CENTER">
               <columns>
                   <TableColumn fx:id="hourCol" prefWidth="45.0" text="%hour" />
                 <TableColumn fx:id="moCol" prefWidth="75.0" text="%monday" />

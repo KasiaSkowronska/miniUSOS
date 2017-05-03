@@ -1,9 +1,12 @@
 package miniUSOS.Controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,16 +28,15 @@ public class DirectoryScreenController extends AbstractController {
     public TableColumn<Course, String> courseCol;
     public TableColumn<Course, String> facultyCol;
 
+    private Course activeCourse;
     private ObservableList<Course> data;
 
     @FXML
     public void initialize() {
         mainField = mainPane;
         fxml = "/Screens/DirectoryScreen.fxml";
-        idCol.setCellValueFactory(new PropertyValueFactory<Course, String>("ects"));
-        courseCol.setCellValueFactory(new PropertyValueFactory<Course, String>("name"));
-        facultyCol.setCellValueFactory(new PropertyValueFactory<Course, String>("abundance"));
 
+        setListProperty();
         loadList();
     }
 
@@ -48,8 +50,21 @@ public class DirectoryScreenController extends AbstractController {
         courseTable.setItems(items);
     }
 
+    public void setListProperty(){
+        idCol.setCellValueFactory(new PropertyValueFactory<Course, String>("code"));
+        courseCol.setCellValueFactory(new PropertyValueFactory<Course, String>("name"));
+        facultyCol.setCellValueFactory(new PropertyValueFactory<Course, String>("faculty"));
+
+
+    }
+
     public void addCourse(ActionEvent actionEvent) throws IOException {
         switchToNewCourse();
+    }
+
+    public void removeCourse(ActionEvent actionEvent){
+        activeCourse = courseTable.getSelectionModel().getSelectedItem();
+        removeCourse(activeCourse);
     }
 
 }
