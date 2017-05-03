@@ -20,6 +20,7 @@ import java.util.List;
 public class NewCourseController extends AbstractController {
 
     public AnchorPane mainPane;
+    private Course newCourse;
 
     // COURSE PROPERTIES
     public TextField nameField;
@@ -42,44 +43,46 @@ public class NewCourseController extends AbstractController {
     public void initialize(){
         mainField = mainPane;
         fxml = "/Screens/NewCourseScreen.fxml";
+        newCourse = new Course();
         setBoxes();
         setListProperty();
     }
 
     public void addCourse(ActionEvent actionEvent) throws IOException {
-        Course course = new Course();
-        course.setName(nameField.getText());
-        course.setCode(courseCodeField.getText());
-        course.setFaculty(facultyField.getText());
-        course.setEcts(Integer.parseInt(ectsField.getText()));
-        course.setPlaces(Integer.parseInt(placesField.getText()));
-        course.setSylabus(sylabusField.getText());
+        newCourse.setName(nameField.getText());
+        newCourse.setCode(courseCodeField.getText());
+        newCourse.setFaculty(facultyField.getText());
+        newCourse.setEcts(Integer.parseInt(ectsField.getText()));
+        newCourse.setPlaces(Integer.parseInt(placesField.getText()));
+        newCourse.setSylabus(sylabusField.getText());
 
-        List<Group> groups = new ArrayList<>();
-        Group group = new Group();
-        group.setNumber(3);
-        group.setStudents(new ArrayList<Student>());
-        group.setCourse(course);
-        groups.add(group);
-        course.setGroups(groups);
+        List<Group> groups = groupList.getItems();
+        newCourse.setGroups(groups);
 
         EntityManager em = PersistenceService.getEntityManager();
         PersistenceService.runTransactional(() -> {
             groups.forEach(em::persist);
-            em.persist(course);
+            em.persist(newCourse);
         });
         switchWindow("/Screens/CourseScreen.fxml");
     }
 
-    public void addGroups(ActionEvent actionEvent) {
+    public void addGroup(ActionEvent actionEvent) {
         Group group = new Group();
         group.setNumber(Integer.parseInt(groupNoField.getText()));
         group.setType((String) groupTypeBox.getSelectionModel().getSelectedItem());
         group.setTutor(groupTutorField.getText());
         String time = dayBox.getSelectionModel().getSelectedItem() + " " + hourBox.getSelectionModel().getSelectedItem();
         group.setTime(time);
-        groupList.getItems().add(group);
+        group.setStudents(new ArrayList<Student>());
+        group.setCourse(newCourse);
 
+        groupList.getItems().add(group);
+        clearGroupFields();
+    }
+
+    public void removeGroup(){
+        groupList.getItems().remove(groupList.getSelectionModel().getSelectedItem());
     }
 
     public void setBoxes(){
@@ -115,4 +118,13 @@ public class NewCourseController extends AbstractController {
             }
         });
     }
+
+    public void clearGroupFields(){
+        groupNoField.clear();
+        groupTypeBox.getSelectionModel().clearSelection();
+        groupTutorField.clear();
+        dayBox.getSelectionModel().clearSelection();
+        hourBox.getSelectionModel().clearSelection();
+    }
+
 }

@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Visual improvements: studentScreen">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/StaffScreenController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/Screens/StaffScreen.fxml" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Classes/Course.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Classes/Course.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Classes/Group.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Classes/Group.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/AbstractController.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/AbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/CourseScreenController.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/CourseScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/DirectoryScreenController.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/DirectoryScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/GroupScreenController.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/GroupScreenController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/NewCourseController.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/NewCourseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/StudentScreenController.java" afterPath="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/StudentScreenController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Screens/DirectoryScreen.fxml" afterPath="$PROJECT_DIR$/src/main/resources/Screens/DirectoryScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Screens/NewCourseScreen.fxml" afterPath="$PROJECT_DIR$/src/main/resources/Screens/NewCourseScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Screens/StartScreen.fxml" afterPath="$PROJECT_DIR$/src/main/resources/Screens/StartScreen.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Screens/StudentScreen.fxml" afterPath="$PROJECT_DIR$/src/main/resources/Screens/StudentScreen.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/bundle.properties" afterPath="$PROJECT_DIR$/src/main/resources/bundle.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/bundle_es.properties" afterPath="$PROJECT_DIR$/src/main/resources/bundle_es.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/bundle_pl.properties" afterPath="$PROJECT_DIR$/src/main/resources/bundle_pl.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usostablev2.log" afterPath="$PROJECT_DIR$/usostablev2.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usostablev2.properties" afterPath="$PROJECT_DIR$/usostablev2.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/usostablev2.script" afterPath="$PROJECT_DIR$/usostablev2.script" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,6 +78,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="DirectoryScreenController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/DirectoryScreenController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="CourseScreenController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/CourseScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -101,35 +98,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewCourseController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/NewCourseController.java">
+      <file leaf-file-name="AbstractController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/AbstractController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="111" column="126" lean-forward="false" selection-start-line="111" selection-start-column="126" selection-end-line="111" selection-end-column="126" />
+            <state relative-caret-position="154">
+              <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
               <folding>
-                <element signature="e#3289#3786#0" expanded="true" />
-                <element signature="e#3785#3786#0" expanded="true" />
+                <marker date="1493805297000" expanded="true" signature="5008:5265" ph="{...}" />
+                <marker date="1493805297000" expanded="true" signature="5258:5265" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Callback.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/javafx-src.zip!/javafx/util/Callback.java">
+      <file leaf-file-name="NewCourseController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/NewCourseController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="51" column="13" lean-forward="false" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hibernate.cfg.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="182">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+              <folding>
+                <element signature="e#2661#2662#0" expanded="true" />
+                <element signature="e#2753#2754#0" expanded="true" />
+                <element signature="e#3406#3903#0" expanded="true" />
+                <element signature="e#3902#3903#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,7 +129,7 @@
       <file leaf-file-name="GroupScreenController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/GroupScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
+            <state relative-caret-position="38">
               <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding />
             </state>
@@ -178,18 +170,21 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="57" column="102" lean-forward="false" selection-start-line="57" selection-start-column="102" selection-end-line="57" selection-end-column="102" />
+            <state relative-caret-position="319">
+              <caret line="83" column="121" lean-forward="false" selection-start-line="83" selection-start-column="121" selection-end-line="83" selection-end-column="121" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentScreenController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/StudentScreenController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="60" column="85" lean-forward="false" selection-start-line="60" selection-start-column="85" selection-end-line="60" selection-end-column="85" />
+      <file leaf-file-name="bundle.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/bundle.properties">
+          <provider selected="true" editor-type-id="ResourceBundle">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -314,10 +309,10 @@
         <option value="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/StudentScreenController.java" />
         <option value="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/GroupScreenController.java" />
         <option value="$PROJECT_DIR$/src/main/java/miniUSOS/Classes/Group.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/bundle.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/Screens/NewCourseScreen.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/miniUSOS/Classes/Course.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/Screens/NewCourseScreen.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/bundle.properties" />
         <option value="$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/NewCourseController.java" />
       </list>
     </option>
@@ -1050,7 +1045,7 @@
       <workItem from="1493680169704" duration="201000" />
       <workItem from="1493680415632" duration="148000" />
       <workItem from="1493753702018" duration="3040000" />
-      <workItem from="1493805169804" duration="6367000" />
+      <workItem from="1493805169804" duration="7769000" />
     </task>
     <task id="LOCAL-00001" summary="Cool switching">
       <created>1492028982212</created>
@@ -1157,11 +1152,18 @@
       <option name="project" value="LOCAL" />
       <updated>1493680530706</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="NewCourseScreen upgraded">
+      <created>1493812491607</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1493812491607</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95336000" />
+    <option name="totallyTimeSpent" value="96738000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1236,7 +1238,8 @@
     <MESSAGE value="More visual improvements: cool user profile" />
     <MESSAGE value="Folder structure" />
     <MESSAGE value="Visual improvements: studentScreen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Visual improvements: studentScreen" />
+    <MESSAGE value="NewCourseScreen upgraded" />
+    <option name="LAST_COMMIT_MESSAGE" value="NewCourseScreen upgraded" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1492,25 +1495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/AbstractController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="410">
-          <caret line="62" column="21" lean-forward="true" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-          <folding>
-            <marker date="1493805297000" expanded="true" signature="5008:5265" ph="{...}" />
-            <marker date="1493805297000" expanded="true" signature="5258:5265" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/DirectoryScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="53" column="8" lean-forward="false" selection-start-line="53" selection-start-column="8" selection-end-line="55" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/Screens/StudentScreen.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
@@ -1540,29 +1524,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/bundle.properties">
-      <provider selected="true" editor-type-id="ResourceBundle">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/GroupScreenController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1603,17 +1568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Screens/NewCourseScreen.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="57" column="102" lean-forward="false" selection-start-line="57" selection-start-column="102" selection-end-line="57" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/CourseScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1643,13 +1597,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/GroupScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/DirectoryScreenController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding>
+            <marker date="1493805297000" expanded="true" signature="5008:5265" ph="{...}" />
+            <marker date="1493805297000" expanded="true" signature="5258:5265" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Screens/NewCourseScreen.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="83" column="121" lean-forward="false" selection-start-line="83" selection-start-column="121" selection-end-line="83" selection-end-column="121" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bundle.properties">
+      <provider selected="true" editor-type-id="ResourceBundle">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/miniUSOS/Controllers/NewCourseController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="111" column="126" lean-forward="false" selection-start-line="111" selection-start-column="126" selection-end-line="111" selection-end-column="126" />
+        <state relative-caret-position="182">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding>
-            <element signature="e#3289#3786#0" expanded="true" />
-            <element signature="e#3785#3786#0" expanded="true" />
+            <element signature="e#2661#2662#0" expanded="true" />
+            <element signature="e#2753#2754#0" expanded="true" />
+            <element signature="e#3406#3903#0" expanded="true" />
+            <element signature="e#3902#3903#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -55,7 +55,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="406.0">
                <children>
-                  <Button layoutX="154.0" layoutY="406.0" mnemonicParsing="false" onAction="#addGroups" text="%addGroups" />
+                  <Button layoutX="118.0" layoutY="406.0" mnemonicParsing="false" onAction="#addGroup" text="%addGroups" />
                   <GridPane hgap="3.0" layoutX="25.0" layoutY="40.0" prefHeight="171.0" prefWidth="354.0" vgap="3.0" AnchorPane.topAnchor="50.0">
                      <columnConstraints>
                         <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="141.0" />
@@ -81,6 +81,7 @@
                         <ComboBox fx:id="dayBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                   </GridPane>
+                  <Button layoutX="230.0" layoutY="406.0" mnemonicParsing="false" onAction="#removeGroup" text="%removeGroup" />
                </children>
             </AnchorPane>
         </items>
