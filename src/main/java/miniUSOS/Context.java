@@ -1,5 +1,6 @@
 package miniUSOS;
 
+import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Student;
 
 import java.util.Locale;
@@ -16,6 +17,16 @@ public class Context {
     }
 
     private Student loggedStudent;
+
+    private Course directoryContext;
+
+    public Course getDirectoryContext() {
+        return directoryContext;
+    }
+
+    public void setDirectoryContext(Course directoryContext) {
+        this.directoryContext = directoryContext;
+    }
 
     public Locale getCurrentLocale() {
         return currentLocale;

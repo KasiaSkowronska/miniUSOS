@@ -43,15 +43,16 @@
             </Menu>
          </menus>
       </MenuBar>
-      <TableView fx:id="courseTable" layoutX="30.0" layoutY="148.0" prefHeight="200.0" prefWidth="664.0">
+      <TableView fx:id="courseTable" layoutX="30.0" layoutY="148.0" onMouseClicked="#test" prefHeight="364.0" prefWidth="450.0">
         <columns>
-          <TableColumn fx:id="idCol" prefWidth="144.0" text="%courseCode" />
-          <TableColumn fx:id="courseCol" prefWidth="333.0" text="%courseName" />
-            <TableColumn fx:id="facultyCol" minWidth="0.0" prefWidth="186.0" text="%faculty" />
+          <TableColumn fx:id="idCol" prefWidth="75.0" text="%courseCode" />
+          <TableColumn fx:id="courseCol" prefWidth="227.0" text="%courseName" />
+            <TableColumn fx:id="facultyCol" minWidth="0.0" prefWidth="145.0" text="%faculty" />
         </columns>
       </TableView>
       <Button layoutX="417.0" layoutY="112.0" mnemonicParsing="false" onAction="#addCourse" text="Dodaj przedmiot" />
       <Button layoutX="552.0" layoutY="112.0" mnemonicParsing="false" onAction="#removeCourse" prefHeight="26.0" prefWidth="125.0" text="Usuń przedmiot" />
-      <Button layoutX="162.0" layoutY="407.0" mnemonicParsing="false" onAction="#switchToCourse" text="Button" />
+      <Button layoutX="30.0" layoutY="112.0" mnemonicParsing="false" onAction="#switchToCourse" text="Button" />
+      <Button layoutX="505.0" layoutY="304.0" mnemonicParsing="false" onAction="#chooseCourse" text="Zarejestruj" />
    </children>
 </AnchorPane>
