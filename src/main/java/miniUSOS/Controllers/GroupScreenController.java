@@ -48,26 +48,26 @@ public class GroupScreenController extends AbstractController {
     }
 
     public void setListProperty(){
-        groupList.setCellFactory(param -> new ListCell<Group>() {
-            @Override
-            protected void updateItem(Group item, boolean empty) {
-                super.updateItem(item, empty);
-
-                if (empty || item == null || item.getName() == null) {
-                    setText(null);
-                } else {
-                    setText(item.getName());
-                }
-            }
-        });
-        groupList.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener() {
-                    @Override
-                    public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                        Group group = (Group) newValue;
-                        activeGroup = group.getName();
-                    }
-                });
+//        groupList.setCellFactory(param -> new ListCell<Group>() {
+//            @Override
+//            protected void updateItem(Group item, boolean empty) {
+//                super.updateItem(item, empty);
+//
+//                if (empty || item == null || item.getName() == null) {
+//                    setText(null);
+//                } else {
+//                    setText(item.getName());
+//                }
+//            }
+//        });
+//        groupList.getSelectionModel().selectedItemProperty().addListener(
+//                new ChangeListener() {
+//                    @Override
+//                    public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+//                        Group group = (Group) newValue;
+//                        activeGroup = group.getName();
+//                    }
+//                });
     }
 
     public void resignFromGroup(ActionEvent actionEvent) {

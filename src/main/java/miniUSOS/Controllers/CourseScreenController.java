@@ -102,7 +102,7 @@ public class CourseScreenController extends AbstractController {
                         activeCourse = course;
                         nameField.setText(activeCourse.getName());
                         ectsField.setText(Integer.toString(activeCourse.getEcts()));
-                        abundanceField.setText(Integer.toString(activeCourse.getAbundance()));
+                        abundanceField.setText(Integer.toString(activeCourse.getPlaces()));
                         sylabusField.setText(activeCourse.getSylabus());
                     }
                 });

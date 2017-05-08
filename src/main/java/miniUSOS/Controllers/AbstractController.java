@@ -59,6 +59,14 @@ public abstract class AbstractController {
         switchWindow("/Screens/StartScreen.fxml");
     }
 
+    public void switchToStaff() throws IOException {
+        switchWindow("/Screens/StaffScreen.fxml");
+    }
+
+    public void switchToCoursePage() throws IOException {
+        switchWindow("/Screens/CoursePage.fxml");
+    }
+
     public void switchWindow(String fxml_name) throws IOException {
         ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
         Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name), bundle);
@@ -128,6 +136,7 @@ public abstract class AbstractController {
         em.getTransaction().commit();
         return s;
     }
+
 
     public void removeCourse(Course course) {
         EntityManager em = PersistenceService.getEntityManager();

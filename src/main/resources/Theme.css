@@ -14,6 +14,7 @@
     -fx-font-family: "Helvetica Bold";
     -fx-text-fill: black;
     -fx-opacity: 1;
+    -fx-label-padding: 0cm 0cm 0cm 5pt;
 }
 
 .up-pane {
@@ -26,3 +27,21 @@
     -fx-border-color: #e2e2e2;
     -fx-border-width: 2;
 }
+
+.field-background {
+    -fx-background-color: b8dde7;
+}
+
+.info-background {
+    -fx-background-color: #D2D9DA;
+}
+
+.grid {
+-fx-padding: 10;
+-fx-border-style: solid inside;
+-fx-border-width: 2;
+-fx-border-insets: 5;
+-fx-border-radius: 5;
+-fx-border-color: blue
+}
+

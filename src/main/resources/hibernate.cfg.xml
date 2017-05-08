@@ -12,7 +12,7 @@
 
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">1</property>
-    <!-- <property name="hibernate.hbm2ddl.auto">create</property> -->
+     <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
     <property name="hibernate.hbm2ddl.auto">update</property>
 
     <!-- SQL dialect -->
@@ -23,6 +23,7 @@
     <mapping class="miniUSOS.Classes.Student"/>
     <mapping class="miniUSOS.Classes.Group" />
     <mapping class="miniUSOS.Classes.Course" />
+    <!--<mapping class="miniUSOS.Classes.Request" />-->
 
 
 

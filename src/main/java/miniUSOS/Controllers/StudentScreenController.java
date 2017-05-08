@@ -1,13 +1,10 @@
 package miniUSOS.Controllers;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import miniUSOS.Classes.Course;
@@ -21,13 +18,18 @@ public class StudentScreenController extends AbstractController {
 
 
     public AnchorPane mainPane;
-    public ListView coursesList;
+
     public TableColumn hourCol;
     public TableColumn<Group, String> moCol;
     public TableColumn<Group, String> tuCol;
     public TableColumn<Group, String> wdCol;
     public TableColumn<Group, String> thCol;
     public TableColumn<Group, String> frCol;
+
+    public TableView studentCourseTable;
+    public TableColumn courseCol;
+    public TableColumn groupIDCol;
+    public TableColumn timeCol;
 
     protected String activeGroup;
 
@@ -52,30 +54,14 @@ public class StudentScreenController extends AbstractController {
         for (Group group : groups) {
             items.add(group);
         }
-        coursesList.setItems(items);
+        studentCourseTable.setItems(items);
     }
 
     public void setListProperty(){
-        coursesList.setCellFactory(param -> new ListCell<Group>() {
-            @Override
-            protected void updateItem(Group item, boolean empty) {
-                super.updateItem(item, empty);
+        courseCol.setCellValueFactory(new PropertyValueFactory<Group, String>("course"));
+        groupIDCol.setCellValueFactory(new PropertyValueFactory<Group, String>("number"));
+        timeCol.setCellValueFactory(new PropertyValueFactory<Group, String>("time"));
 
-                if (empty || item == null || item.getName() == null) {
-                    setText(null);
-                } else {
-                    setText(item.getName());
-                }
-            }
-        });
-        coursesList.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener() {
-                    @Override
-                    public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                        Group group = (Group) newValue;
-                        activeGroup = group.getName();
-                    }
-                });
     }
 
 
