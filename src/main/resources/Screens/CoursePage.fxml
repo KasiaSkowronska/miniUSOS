@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -40,6 +41,11 @@
             <Label fx:id="ectsLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label fx:id="placesLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label fx:id="sylabusLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+              <content>
+                <AnchorPane fx:id="groupOptionsPane" minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="215.0" />
+              </content>
+            </ScrollPane>
          </children>
       </GridPane>
    </children>

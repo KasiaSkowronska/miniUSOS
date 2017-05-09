@@ -102,10 +102,10 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", name='" + number + '\'' +
-                '}';
+        return "Gr." + String.valueOf(number) +
+                type +
+                time
+                ;
     }
 
     public Course getCourse() {
