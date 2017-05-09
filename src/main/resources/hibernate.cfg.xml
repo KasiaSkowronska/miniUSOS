@@ -21,6 +21,8 @@
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
     <mapping class="miniUSOS.Classes.User" />
+    <mapping class="miniUSOS.Classes.Lecturer" />
+    <mapping class="miniUSOS.Classes.Admin" />
     <mapping class="miniUSOS.Classes.Group" />
     <mapping class="miniUSOS.Classes.Course" />
     <!--<mapping class="miniUSOS.Classes.Request" />-->

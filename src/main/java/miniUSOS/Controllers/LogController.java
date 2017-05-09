@@ -11,6 +11,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import miniUSOS.Classes.User;
 import miniUSOS.Context;
 import miniUSOS.Classes.Student;
 
@@ -89,10 +90,10 @@ public class LogController extends AbstractController {
     }
 
     public void loadList(){
-        List<Student> students = retrieveStudents();
-        ObservableList<Student> items = FXCollections.observableArrayList();
-        for (Student student : students) {
-            items.add(student);
+        List<User> users = retrieveUsers();
+        ObservableList<User> items = FXCollections.observableArrayList();
+        for (User user : users) {
+            items.add(user);
         }
         userList.setItems(items);
     }
@@ -114,8 +115,8 @@ public class LogController extends AbstractController {
                 new ChangeListener() {
                     @Override
                     public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                        Student student = (Student) newValue;
-                        loginField.setText(student.getName());
+                        User user = (User) newValue;
+                        loginField.setText(user.getName());
                     }
                 });
     }

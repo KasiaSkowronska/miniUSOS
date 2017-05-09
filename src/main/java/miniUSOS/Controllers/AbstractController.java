@@ -10,6 +10,7 @@ import miniUSOS.*;
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Group;
 import miniUSOS.Classes.Student;
+import miniUSOS.Classes.User;
 import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
@@ -101,12 +102,20 @@ public abstract class AbstractController {
     }
 
 
-    public List<Student> retrieveStudents() {
+//    public List<Student> retrieveStudents() {
+//        EntityManager em = PersistenceService.getEntityManager();
+//        em.getTransaction().begin();
+//        List<Student> students = em.createQuery("from Student").getResultList();
+//        em.getTransaction().commit();
+//        return students;
+//    }
+
+    public List<User> retrieveUsers() {
         EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
-        List<Student> students = em.createQuery("from Student").getResultList();
+        List<User> users = em.createQuery("from User").getResultList();
         em.getTransaction().commit();
-        return students;
+        return users;
     }
 
     public List<Course> retrieveCourses() {

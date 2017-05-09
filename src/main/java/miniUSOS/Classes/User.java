@@ -6,6 +6,7 @@ import javax.persistence.*;
  * Created by kosss on 08.05.2017.
  */
 @Entity
+//@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @Inheritance
 @DiscriminatorColumn(name="USER_TYPE")
 @Table(name="USER")

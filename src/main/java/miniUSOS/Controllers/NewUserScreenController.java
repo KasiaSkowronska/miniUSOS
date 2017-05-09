@@ -12,6 +12,8 @@ import miniUSOS.Classes.Student;
 import javax.persistence.EntityManager;
 import java.io.IOException;
 
+import static sun.management.snmp.util.JvmContextFactory.getUserData;
+
 /**
  * Created by Kasia on 15.04.2017.
  */
@@ -20,26 +22,33 @@ public class NewUserScreenController extends AbstractController {
     public Button signInButton;
     public TextField passwordField;
     public AnchorPane mainPane;
-    public RadioButton studentButton;
-    public RadioButton lecturerButton;
 
-    private ToggleGroup entityChosing = new ToggleGroup();
+    public ToggleGroup entityChosing;
+    public RadioButton lecturerButton;
+    public RadioButton adminButton;
+    public RadioButton studentButton;
+
 
     @FXML
     public void initialize(){
         mainField = mainPane;
         fxml = "/Screens/NewUserScreen.fxml";
-        manageButtons();
-
-    }
-
-    private void manageButtons() {
+        entityChosing = new ToggleGroup();
+        studentButton.setUserData("student");
+        lecturerButton.setUserData("lecturer");
+        adminButton.setUserData("admin");
         studentButton.setToggleGroup(entityChosing);
         lecturerButton.setToggleGroup(entityChosing);
+        adminButton.setToggleGroup(entityChosing);
     }
 
     public void addUser() throws IOException {
-        RadioButton selectedButton = (RadioButton) entityChosing.getSelectedToggle();
+        RadioButton chosenButton = (RadioButton) entityChosing.getSelectedToggle();
+        String userType = (String) chosenButton.getUserData();
+        System.out.println(userType);
+        if (userType.equals("student")){
+            addStudent();
+        }
     }
 
 
