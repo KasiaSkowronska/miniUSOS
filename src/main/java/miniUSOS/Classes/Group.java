@@ -31,16 +31,21 @@ public class Group {
     @Column(name = "time")
     protected String time;
 
-    @ManyToMany(targetEntity = Student.class, cascade = CascadeType.ALL)
+    @ManyToMany(targetEntity = User.class, cascade = CascadeType.ALL)
     @JoinTable(name = "GROUP_STUDENTS",
-        joinColumns = @JoinColumn(name="gid"),
-        inverseJoinColumns = @JoinColumn(name = "sid"))
+        joinColumns = @JoinColumn(name="group_id"),
+        inverseJoinColumns = @JoinColumn(name = "student_id"))
     protected List<Student> students = new ArrayList<>();
+
+    @ManyToMany(targetEntity = User.class, cascade = CascadeType.ALL)
+    @JoinTable(name = "GROUP_LECTURERS",
+            joinColumns = @JoinColumn(name="group_id"),
+            inverseJoinColumns = @JoinColumn(name = "lecturer_id"))
+    protected List<Lecturer> lecturers = new ArrayList<>();
 
     @ManyToOne(targetEntity = Course.class, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "COURSE")
     protected Course course;
-
 
     public Integer getId() {
         return id;
@@ -49,7 +54,6 @@ public class Group {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public List<Student> getStudents() {
         return students;

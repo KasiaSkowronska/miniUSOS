@@ -40,10 +40,6 @@ public class Course {
     @OneToMany(targetEntity = Group.class, mappedBy = "course", cascade = CascadeType.ALL)
     protected List<Group> groups = new ArrayList<>();
 
-
-
-
-
     public String getCode() {
         return code;
     }

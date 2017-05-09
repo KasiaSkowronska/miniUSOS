@@ -6,26 +6,24 @@
   <session-factory>
     <!-- Database connection settings -->
     <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-    <property name="connection.url">jdbc:hsqldb:file:usostablev2</property>
+    <property name="connection.url">jdbc:hsqldb:file:20170508usostable</property>
     <property name="connection.username">sa</property>
     <property name="connection.password"></property>
 
     <!-- JDBC connection pool (use the built-in) -->
     <property name="connection.pool_size">1</property>
      <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
 
     <!-- SQL dialect -->
     <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
     <property name="hibernate.enable_lazy_load_no_trans">true</property>
     <!-- Echo all executed SQL to stdout -->
     <property name="show_sql">true</property>
-    <mapping class="miniUSOS.Classes.Student"/>
+    <mapping class="miniUSOS.Classes.User" />
     <mapping class="miniUSOS.Classes.Group" />
     <mapping class="miniUSOS.Classes.Course" />
     <!--<mapping class="miniUSOS.Classes.Request" />-->
-
-
 
   </session-factory>
 </hibernate-configuration>
