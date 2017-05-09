@@ -25,6 +25,7 @@
     <mapping class="miniUSOS.Classes.Admin" />
     <mapping class="miniUSOS.Classes.Group" />
     <mapping class="miniUSOS.Classes.Course" />
+    <mapping class="miniUSOS.Classes.Student" />
     <!--<mapping class="miniUSOS.Classes.Request" />-->
 
   </session-factory>
