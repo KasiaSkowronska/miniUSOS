@@ -56,7 +56,6 @@ public class Course {
         this.faculty = faculty;
     }
 
-
     public Integer getId() {
         return id;
     }

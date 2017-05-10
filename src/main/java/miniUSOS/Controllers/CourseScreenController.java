@@ -14,6 +14,7 @@ import miniUSOS.*;
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Group;
 import miniUSOS.Classes.Student;
+import miniUSOS.Classes.User;
 import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
@@ -32,6 +33,7 @@ public class CourseScreenController extends AbstractController {
     public TextField abundanceField;
     public TextField sylabusField;
     private Course activeCourse;
+    public User activeUser = Context.getInstance().getLoggedUser();
 
     @FXML
     public void initialize(){
@@ -46,22 +48,25 @@ public class CourseScreenController extends AbstractController {
     }
 
     public void registerToCourse(ActionEvent actionEvent) {
-        // TODO: check does it is implemented well
-        Student activeStudent = Context.getInstance().getLoggedStudent();
-        if (activeCourse == null) {
-            System.out.println("Kurs to null");
+        if(activeUser instanceof Student) {
+            Student activeStudent = (Student) activeUser;
+            if (activeCourse == null) {
+                System.out.println("Kurs to null");
+            }
+            Group activeGroup = activeCourse.getGroups().get(0); // should be changed to group choosing
+            EntityManager em = PersistenceService.getEntityManager();
+            em.getTransaction().begin();
+            String studentName = activeStudent.getName();
+            List<Student> students = em.createQuery("from Student where name=:studentName")
+                    .setParameter("studentName", studentName)
+                    .getResultList();
+            Student dbStudent = students.get(0);
+            dbStudent.getGroups().add(activeGroup);
+            em.persist(dbStudent);
+
+        } else {
+            System.out.println("Only students can register to courses.");
         }
-        Group activeGroup = activeCourse.getGroups().get(0); // should be changed to group choosing
-        EntityManager em = PersistenceService.getEntityManager();
-        em.getTransaction().begin();
-        String studentName = activeStudent.getName();
-        List<Student> students = em.createQuery("from Student where name=:studentName")
-                .setParameter("studentName", studentName)
-                .getResultList();
-        Student dbStudent = students.get(0);
-        dbStudent.getGroups().add(activeGroup);
-        em.persist(dbStudent);
-        em.getTransaction().commit();
     }
 
     public void addCourse(ActionEvent actionEvent) throws IOException {

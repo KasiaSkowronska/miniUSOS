@@ -29,7 +29,7 @@ public abstract class AbstractController {
     protected String fxml;
 
     public void switchToStudent() throws IOException {
-        switchWindow("/Screens/StudentScreen.fxml");
+        switchWindow("/Screens/UserScreen.fxml");
     }
 
     public void switchToGroup() throws IOException {
@@ -102,13 +102,13 @@ public abstract class AbstractController {
     }
 
 
-//    public List<Student> retrieveStudents() {
-//        EntityManager em = PersistenceService.getEntityManager();
-//        em.getTransaction().begin();
-//        List<Student> students = em.createQuery("from Student").getResultList();
-//        em.getTransaction().commit();
-//        return students;
-//    }
+    public List<Student> retrieveStudents() {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        List<Student> students = em.createQuery("from Student").getResultList();
+        em.getTransaction().commit();
+        return students;
+    }
 
     public List<User> retrieveUsers() {
         EntityManager em = PersistenceService.getEntityManager();
@@ -138,6 +138,14 @@ public abstract class AbstractController {
         return studentGroups;
     }
 
+    public User retrieveUser(String username) {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        User u = (User) em.createQuery("from User where name = :name").setParameter("name", username).getSingleResult();
+        em.getTransaction().commit();
+        return u;
+    }
+
     public Student retrieveStudent(String username) {
         EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
@@ -156,24 +164,23 @@ public abstract class AbstractController {
     }
 
 
-    public boolean verifyStudent(String studentName, String password) {
+    public boolean verifyUser(String userName, String password) {
         EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
-        List<Student> students = em.createQuery("from Student where name=:studentName")
-                .setParameter("studentName", studentName)
+        List<User> users = em.createQuery("from User where name=:userName")
+                .setParameter("userName", userName)
                 .getResultList();
         em.getTransaction().commit();
-        for (Student student : students) {
-            if (student.getPassword().equals(password)) {
+        for (User user : users) {
+            if (user.getPassword().equals(password)) {
                 return true;
             }
-//            System.out.println("hasło to: " + student.getPassword());
         }
         return false;
     }
 
     public void logOut() throws IOException {
-        Context.getInstance().setLoggedStudent(null);
+        Context.getInstance().setLoggedUser(null);
         switchToLogging();
     }
 }

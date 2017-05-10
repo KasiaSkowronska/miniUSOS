@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.StartScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.StartScreenController">
    <children>
       <Pane layoutX="4.0" prefHeight="93.0" prefWidth="724.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -57,7 +57,7 @@
                   <VBox prefHeight="61.0" prefWidth="123.0" spacing="3.0">
                      <children>
                         <Label fx:id="nameField" text="Label" />
-                        <Label text="0000-0000" />
+                        <Label fx:id="idField" text="0000-0000" />
                      </children>
                   </VBox>
                </children>

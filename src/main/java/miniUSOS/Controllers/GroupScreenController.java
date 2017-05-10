@@ -30,6 +30,7 @@ public class GroupScreenController extends AbstractController {
     public void initialize(){
         mainField = mainPane;
         fxml = "/Screens/GroupScreen.fxml";
+        activeStudent = (Student) Context.getInstance().getLoggedUser();
         vievGroups();
     }
 
@@ -39,7 +40,7 @@ public class GroupScreenController extends AbstractController {
     }
 
     public void loadList(){
-        List<Group> groups = new ArrayList<>(Context.getInstance().getLoggedStudent().getGroups());
+        List<Group> groups = new ArrayList<>(activeStudent.getGroups());
         ObservableList<Group> items = FXCollections.observableArrayList();
         for (Group group : groups) {
             items.add(group);

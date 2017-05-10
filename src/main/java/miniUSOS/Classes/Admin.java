@@ -7,8 +7,7 @@ import javax.persistence.*;
  */
 
 @Entity
-@DiscriminatorValue("STUDENT")
-public class Admin {
-
+@DiscriminatorValue("ADMIN")
+public class Admin extends User {
 
 }

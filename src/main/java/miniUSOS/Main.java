@@ -17,6 +17,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         //Context.getInstance().setCurrentLocale(new Locale("pl"));
         Context.getInstance().setCurrentLocale(new Locale(""));
+        // use https://native2ascii.net/ for each properties file
         ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
         Parent root = loader.load(getClass().getResource("/Screens/LoggingScreen.fxml"), bundle);
         primaryStage.setOnCloseRequest(e -> exitApp());
