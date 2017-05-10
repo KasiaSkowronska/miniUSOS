@@ -6,6 +6,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Group;
 import miniUSOS.Context;
@@ -27,7 +28,8 @@ public class CoursePageController extends AbstractController {
     public Label ectsLabel;
     public Label placesLabel;
     public Label sylabusLabel;
-    public AnchorPane groupOptionsPane;
+    public VBox groupOptionsPane;
+
 
     private Course activeCourse;
 
@@ -66,5 +68,13 @@ public class CoursePageController extends AbstractController {
             box.setText(group.toString());
             groupOptionsPane.getChildren().add(box);
         }
+    }
+
+    public void sendRequest(){
+
+    }
+
+    public void getSelectedGroups(){
+        
     }
 }

@@ -8,15 +8,19 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="mainPane" prefHeight="606.0" prefWidth="561.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.CoursePageController">
    <children>
-      <Pane layoutX="31.0" layoutY="14.0" prefHeight="55.0" prefWidth="561.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane layoutX="31.0" layoutY="14.0" prefHeight="55.0" prefWidth="561.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="26.0" layoutY="15.0" styleClass="label-header" text="%request" />
+         </children></Pane>
       <Button layoutX="41.0" layoutY="547.0" mnemonicParsing="false" onAction="#back" text="%back" />
-      <GridPane hgap="3.0" layoutX="70.0" layoutY="86.0" prefHeight="368.0" prefWidth="354.0" vgap="3.0">
+      <GridPane hgap="3.0" layoutX="62.0" layoutY="97.0" prefHeight="355.0" prefWidth="438.0" vgap="3.0">
          <columnConstraints>
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="141.0" />
-            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="269.0" minWidth="10.0" prefWidth="258.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="133.0" />
+            <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" maxWidth="302.0" minWidth="10.0" prefWidth="302.0" />
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
@@ -41,12 +45,13 @@
             <Label fx:id="ectsLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label fx:id="placesLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label fx:id="sylabusLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
-              <content>
-                <AnchorPane fx:id="groupOptionsPane" minHeight="0.0" minWidth="0.0" prefHeight="98.0" prefWidth="215.0" />
-              </content>
+            <ScrollPane prefHeight="100.0" prefWidth="255.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <content>
+                  <VBox fx:id="groupOptionsPane" prefHeight="95.0" prefWidth="297.0" spacing="3.0" />
+               </content>
             </ScrollPane>
          </children>
       </GridPane>
+      <Button layoutX="393.0" layoutY="547.0" mnemonicParsing="false" onAction="#sendRequest" text="%sendRequest" />
    </children>
 </AnchorPane>
