@@ -53,7 +53,7 @@
             </Pane>
          </top>
          <center>
-            <TableView fx:id="studentCourseTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="userCourseTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="courseCol" prefWidth="167.0" text="%courseName" />
                 <TableColumn fx:id="groupIDCol" minWidth="0.0" prefWidth="84.0" text="%groupID" />

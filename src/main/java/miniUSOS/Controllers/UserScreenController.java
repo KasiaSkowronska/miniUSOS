@@ -8,6 +8,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Lecturer;
 import miniUSOS.Classes.Student;
 import miniUSOS.Classes.User;
 import miniUSOS.Context;
@@ -27,7 +28,7 @@ public class UserScreenController extends AbstractController {
     public TableColumn<Group, String> thCol;
     public TableColumn<Group, String> frCol;
 
-    public TableView studentCourseTable;
+    public TableView userCourseTable;
     public TableColumn courseCol;
     public TableColumn groupIDCol;
     public TableColumn timeCol;
@@ -42,24 +43,45 @@ public class UserScreenController extends AbstractController {
         mainField = mainPane;
         fxml = "/Screens/UserScreen.fxml";
         if (activeUser instanceof Student) {
-            viewMyCourses();
+            viewStudentCourses();
             setSchedule();
         }
+        if (activeUser instanceof Lecturer) {
+            viewLecturerCourses();
+            setSchedule();
+        }
+
     }
 
-    private void viewMyCourses() {
-        loadList();
+    private void viewLecturerCourses() {
+        loadLecturerList();
         setListProperty();
     }
 
-    public void loadList(){
+
+    private void viewStudentCourses() {
+        loadStudentList();
+        setListProperty();
+    }
+
+    public void loadLecturerList(){
+        Lecturer activeLecturer = (Lecturer) activeUser;
+        List<Group> groups = new ArrayList<>(activeLecturer.getGroups());
+        ObservableList<Group> items = FXCollections.observableArrayList();
+        for (Group group : groups) {
+            items.add(group);
+        }
+        userCourseTable.setItems(items);
+    }
+
+    public void loadStudentList(){
         Student activeStudent = (Student) activeUser;
         List<Group> groups = new ArrayList<>(activeStudent.getGroups());
         ObservableList<Group> items = FXCollections.observableArrayList();
         for (Group group : groups) {
             items.add(group);
         }
-        studentCourseTable.setItems(items);
+        userCourseTable.setItems(items);
     }
 
     public void setListProperty(){

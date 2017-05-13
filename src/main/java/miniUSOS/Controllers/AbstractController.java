@@ -7,10 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import miniUSOS.*;
-import miniUSOS.Classes.Course;
-import miniUSOS.Classes.Group;
-import miniUSOS.Classes.Student;
-import miniUSOS.Classes.User;
+import miniUSOS.Classes.*;
 import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
@@ -160,13 +157,20 @@ public abstract class AbstractController {
         return s;
     }
 
+    public Lecturer retrieveLecturer(String username) {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        Lecturer l = (Lecturer) em.createQuery("from Lecturer where name = :name").setParameter("name", username).getSingleResult();
+        em.getTransaction().commit();
+        return l;
+    }
 
     public void removeCourse(Course course) {
         EntityManager em = PersistenceService.getEntityManager();
-        em.getTransaction().begin();
-        em.createQuery("delete from Course where name = " + course.getName()).getResultList();
-        em.getTransaction().commit();
-        System.out.println("Usunięto + " + course.getName());
+        PersistenceService.runTransactional(() -> {
+                    em.createQuery("delete from Course where name = " + course.getName()).getResultList();
+                    });
+        System.out.println("Usunięto + " + course.getName() + " lub wyskoczył błąd bazy danych");
     }
 
 

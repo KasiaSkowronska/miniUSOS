@@ -64,8 +64,8 @@ public class NewCourseController extends AbstractController {
             groups.forEach(em::persist);
             em.persist(newCourse);
         });
-        switchToDirectory();
-//        switchBack();
+//        switchToDirectory();
+        switchBack();
     }
 
     public void addGroup(ActionEvent actionEvent) {

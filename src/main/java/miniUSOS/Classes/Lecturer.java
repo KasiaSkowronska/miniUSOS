@@ -14,6 +14,14 @@ import java.util.Set;
 @DiscriminatorValue("LECTURER")
 public class Lecturer extends User {
 
+    public Set<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<Group> groups) {
+        this.groups = groups;
+    }
+
     @ManyToMany(targetEntity = Group.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "GROUP_LECTURERS",
             joinColumns = @JoinColumn(name="lecturer_id"),
