@@ -21,10 +21,3 @@ alter table GROUP_STUDENTS add constraint FKrki02eadnb16p68h2m2h0pnvh foreign ke
 alter table GROUPS add constraint FKhwpnlde9iramd18mdsng66n76 foreign key (COURSE) references COURSES
 INSERT INTO USER VALUES('STUDENT',1,'a','a')
 COMMIT
-INSERT INTO COURSES VALUES(1,'aa',23,'aaaa','Przedmiot',233,'d')
-INSERT INTO GROUPS VALUES(1,1,'PON 9:00','ja','Wyk\u0142ad',1)
-COMMIT
-INSERT INTO COURSES VALUES(2,'334-21',200,'IF','Etyka pro',12,'Dzieci')
-INSERT INTO GROUPS VALUES(2,2,'PON 13:00','Ja','\u0106wiczenia',2)
-INSERT INTO GROUPS VALUES(3,1,'WT 10:00','prof. G\u0142\u00f3wka','Wyk\u0142ad',2)
-COMMIT
