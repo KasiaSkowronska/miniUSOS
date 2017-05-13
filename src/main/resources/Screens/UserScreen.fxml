@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.StudentScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.UserScreenController">
    <children>
       <Pane prefHeight="93.0" prefWidth="724.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

@@ -2,6 +2,7 @@ package miniUSOS;
 
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Student;
+import miniUSOS.Classes.User;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -16,7 +17,7 @@ public class Context {
         return instance;
     }
 
-    private Student loggedStudent;
+    private User loggedUser;
 
     private Course directoryContext;
 
@@ -48,12 +49,12 @@ public class Context {
 
     private ResourceBundle bundle;
 
-    public Student getLoggedStudent() {
-        return loggedStudent;
+    public User getLoggedUser() {
+        return loggedUser;
     }
 
-    public void setLoggedStudent(Student loggedStudent) {
-        this.loggedStudent = loggedStudent;
+    public void setLoggedUser(User loggedUser) {
+        this.loggedUser = loggedUser;
     }
 
 

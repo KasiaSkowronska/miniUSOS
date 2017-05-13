@@ -6,6 +6,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import miniUSOS.Classes.Admin;
+import miniUSOS.Classes.Lecturer;
+import miniUSOS.Classes.User;
 import miniUSOS.Utils.PersistenceService;
 import miniUSOS.Classes.Student;
 
@@ -43,23 +46,32 @@ public class NewUserScreenController extends AbstractController {
     }
 
     public void addUser() throws IOException {
-        RadioButton chosenButton = (RadioButton) entityChosing.getSelectedToggle();
-        String userType = (String) chosenButton.getUserData();
-        System.out.println(userType);
-        if (userType.equals("student")){
-            addStudent();
+        User user = null;
+        RadioButton chosenButton;
+        chosenButton = (RadioButton) entityChosing.getSelectedToggle();
+        if (chosenButton != null) {
+            String userType = (String) chosenButton.getUserData();
+
+            if (userType.equals("student")) {
+                user = new Student();
+            }
+            if (userType.equals("lecturer")) {
+                user = new Lecturer();
+            }
+            if (userType.equals("admin")) {
+                user = new Admin();
+            }
+            if (!user.equals(null)) {
+                user.setName(nameField.getText());
+                user.setPassword(passwordField.getText());
+                EntityManager em = PersistenceService.getEntityManager();
+                em.getTransaction().begin();
+                em.persist(user);
+                em.getTransaction().commit();
+                switchWindow("/Screens/LoggingScreen.fxml");
+            }
+        } else {
+                System.out.println("Określ typ użytkownika");
+            }
         }
-    }
-
-
-    public void addStudent() throws IOException {
-        Student student = new Student();
-        student.setName(nameField.getText());
-        student.setPassword(passwordField.getText());
-        EntityManager em = PersistenceService.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(student);
-        em.getTransaction().commit();
-        switchWindow("/Screens/LoggingScreen.fxml");
-    }
 }

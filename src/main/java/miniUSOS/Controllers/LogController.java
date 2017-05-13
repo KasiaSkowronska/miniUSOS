@@ -61,9 +61,9 @@ public class LogController extends AbstractController {
     }
 
     public void logIn() throws IOException {
-        if (verifyStudent(loginField.getText(), passwordField.getText())) {
-            Student loggedStudent = retrieveStudent(loginField.getText());
-            Context.getInstance().setLoggedStudent(loggedStudent);
+        if (verifyUser(loginField.getText(), passwordField.getText())) {
+            User loggedUser = retrieveUser(loginField.getText());
+            Context.getInstance().setLoggedUser(loggedUser);
             switchToStart();
         } else {
             showAlert();
@@ -99,9 +99,9 @@ public class LogController extends AbstractController {
     }
 
     public void setListProperty(){
-        userList.setCellFactory(param -> new ListCell<Student>() {
+        userList.setCellFactory(param -> new ListCell<User>() {
             @Override
-            protected void updateItem(Student item, boolean empty) {
+            protected void updateItem(User item, boolean empty) {
                 super.updateItem(item, empty);
 
                 if (empty || item == null || item.getName() == null) {

@@ -7,14 +7,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Student;
+import miniUSOS.Classes.User;
 import miniUSOS.Context;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentScreenController extends AbstractController {
+public class UserScreenController extends AbstractController {
 
 
     public AnchorPane mainPane;
@@ -32,15 +33,18 @@ public class StudentScreenController extends AbstractController {
     public TableColumn timeCol;
 
     protected String activeGroup;
+    public User activeUser = Context.getInstance().getLoggedUser();
 
 
     @FXML
     public void initialize(){
 
         mainField = mainPane;
-        fxml = "/Screens/StudentScreen.fxml";
-        viewMyCourses();
-        setSchedule();
+        fxml = "/Screens/UserScreen.fxml";
+        if (activeUser instanceof Student) {
+            viewMyCourses();
+            setSchedule();
+        }
     }
 
     private void viewMyCourses() {
@@ -49,7 +53,8 @@ public class StudentScreenController extends AbstractController {
     }
 
     public void loadList(){
-        List<Group> groups = new ArrayList<>(Context.getInstance().getLoggedStudent().getGroups());
+        Student activeStudent = (Student) activeUser;
+        List<Group> groups = new ArrayList<>(activeStudent.getGroups());
         ObservableList<Group> items = FXCollections.observableArrayList();
         for (Group group : groups) {
             items.add(group);
