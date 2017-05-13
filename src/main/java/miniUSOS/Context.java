@@ -3,6 +3,7 @@ package miniUSOS;
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Student;
 import miniUSOS.Classes.User;
+import miniUSOS.Controllers.AbstractController;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -11,6 +12,27 @@ import java.util.ResourceBundle;
  * Created by Kasia on 13.04.2017.
  */
 public class Context {
+
+    public String getPreviousScreen() {
+        return previousScreen;
+    }
+
+    public void setPreviousScreen(String previousScreen) {
+        this.previousScreen = previousScreen;
+    }
+
+    public String previousScreen;
+
+    public String currentScreen;
+
+    public String getCurrentScreen() {
+        return currentScreen;
+    }
+
+    public void setCurrentScreen(String currentScreen) {
+        this.currentScreen = currentScreen;
+    }
+
     private final static Context instance = new Context();
 
     public static Context getInstance() {

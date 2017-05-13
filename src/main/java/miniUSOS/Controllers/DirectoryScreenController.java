@@ -79,6 +79,7 @@ public class DirectoryScreenController extends AbstractController {
     public void chooseCourse(ActionEvent actionEvent) throws IOException {
         activeCourse = courseTable.getSelectionModel().getSelectedItem();
         Context.getInstance().setDirectoryContext(activeCourse);
+        // Will send a request here right ? and should give feedback to user
         switchToCoursePage();
     }
 }

@@ -69,6 +69,9 @@ public abstract class AbstractController {
     }
 
     public void switchWindow(String fxml_name) throws IOException {
+        Context.getInstance().setPreviousScreen(Context.getInstance().getCurrentScreen());
+        Context.getInstance().setCurrentScreen(fxml_name);
+        String currentScreen = Context.getInstance().getCurrentScreen();
         ResourceBundle bundle = ResourceBundle.getBundle("bundle", Context.getInstance().getCurrentLocale());
         Parent rootTopic = FXMLLoader.load(getClass().getResource(fxml_name), bundle);
         Scene screen = new Scene(rootTopic);
@@ -78,6 +81,9 @@ public abstract class AbstractController {
         stage.show();
     }
 
+    public void switchBack() throws IOException {
+        switchWindow(Context.getInstance().getPreviousScreen());
+    }
 
     public void reload() throws IOException {
         switchWindow(fxml);

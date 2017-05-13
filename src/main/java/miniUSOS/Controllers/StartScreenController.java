@@ -27,18 +27,18 @@ public class StartScreenController extends AbstractController {
         mainField = mainPane;
         fxml = "/Screens/StartScreen.fxml";
         if (activeUser instanceof Student) {
-            Image image = new Image("/konik.jpg");
+            Image image = new Image("/avatars/konik.jpg");
             imageView.setImage(image);
             nameField.setText(activeUser.getName());
             idField.setText(activeUser.getId().toString());
         }
         if (activeUser instanceof Lecturer) {
-            Image image = new Image("/konik.jpg");
+            Image image = new Image("/avatars/lecturer.jpg");
             imageView.setImage(image);
             nameField.setText(activeUser.getName());
         }
         if (activeUser instanceof Admin) {
-            Image image = new Image("/konik.jpg");
+            Image image = new Image("/avatars/admin.jpg");
             imageView.setImage(image);
             nameField.setText(activeUser.getName());
         }

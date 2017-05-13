@@ -54,15 +54,17 @@ public class CourseScreenController extends AbstractController {
                 System.out.println("Kurs to null");
             }
             Group activeGroup = activeCourse.getGroups().get(0); // should be changed to group choosing
+
             EntityManager em = PersistenceService.getEntityManager();
-            em.getTransaction().begin();
-            String studentName = activeStudent.getName();
-            List<Student> students = em.createQuery("from Student where name=:studentName")
-                    .setParameter("studentName", studentName)
-                    .getResultList();
-            Student dbStudent = students.get(0);
-            dbStudent.getGroups().add(activeGroup);
-            em.persist(dbStudent);
+            PersistenceService.runTransactional(() -> {
+                String studentName = activeStudent.getName();
+                List<Student> students = em.createQuery("from Student where name=:studentName")
+                        .setParameter("studentName", studentName)
+                        .getResultList();
+                Student dbStudent = students.get(0);
+                dbStudent.getGroups().add(activeGroup);
+                em.persist(dbStudent);
+            });
 
         } else {
             System.out.println("Only students can register to courses.");

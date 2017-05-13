@@ -64,7 +64,8 @@ public class NewCourseController extends AbstractController {
             groups.forEach(em::persist);
             em.persist(newCourse);
         });
-        switchWindow("/Screens/CourseScreen.fxml");
+        switchToDirectory();
+//        switchBack();
     }
 
     public void addGroup(ActionEvent actionEvent) {

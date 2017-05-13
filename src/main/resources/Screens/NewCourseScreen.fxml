@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="819.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.NewCourseController">
+<AnchorPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="819.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.NewCourseController">
    <children>
       <SplitPane dividerPositions="0.5006119951040392" layoutY="56.0" prefHeight="509.0" prefWidth="798.0" styleClass="background" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="56.0">
         <items>
@@ -50,7 +50,7 @@
                         <ListView fx:id="groupList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <Button layoutX="26.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchToCourse" text="&lt;- Wróć" />
+                  <Button layoutX="26.0" layoutY="450.0" mnemonicParsing="false" onAction="#switchBack" text="&lt;- Wróć" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="511.0" prefWidth="406.0">
