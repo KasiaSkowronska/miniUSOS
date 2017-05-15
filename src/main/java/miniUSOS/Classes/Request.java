@@ -3,7 +3,7 @@ package miniUSOS.Classes;
 import javax.persistence.*;
 
 /**
- * Created by Kasia on 04.05.2017.
+ * Created by Kasia on 15.05.2017.
  */
 
 @Entity
@@ -16,9 +16,36 @@ public class Request {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
 
-    @Column(name = "student")
+
+    @ManyToOne(targetEntity = Group.class, cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "REQUEST_GROUP")
+    protected Group group;
+
+    @ManyToOne(targetEntity = Student.class, cascade = CascadeType.ALL, optional = true)
+    @JoinColumn(name = "REQUEST_student")
     protected Student student;
 
-    @Column(name = "group")
-    protected Group group;
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

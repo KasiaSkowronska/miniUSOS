@@ -47,6 +47,11 @@ public class Group {
     @JoinColumn(name = "COURSE")
     protected Course course;
 
+    @OneToMany(targetEntity = Request.class, mappedBy = "group", cascade = CascadeType.ALL)
+    protected List<Request> requests = new ArrayList<>();
+
+
+
     public Integer getId() {
         return id;
     }

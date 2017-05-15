@@ -7,10 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import miniUSOS.*;
-import miniUSOS.Classes.Course;
-import miniUSOS.Classes.Group;
-import miniUSOS.Classes.Student;
-import miniUSOS.Classes.User;
+import miniUSOS.Classes.*;
 import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
@@ -124,6 +121,14 @@ public abstract class AbstractController {
         List<Course> courses = em.createQuery("from Course").getResultList();
         em.getTransaction().commit();
         return courses;
+    }
+
+    public List<Request> retrieveRequests() {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        List<Request> requests = em.createQuery("from Request").getResultList();
+        em.getTransaction().commit();
+        return requests;
     }
 
     public List<Group> retrieveGroups(Student student) {
