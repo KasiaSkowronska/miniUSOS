@@ -102,8 +102,8 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Gr." + String.valueOf(number) +
-                type +
+        return "Gr." + String.valueOf(number) + " " +
+                type + " " +
                 time
                 ;
     }
