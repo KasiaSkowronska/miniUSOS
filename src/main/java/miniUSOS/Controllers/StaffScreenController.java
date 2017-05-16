@@ -80,6 +80,13 @@ public class StaffScreenController extends AbstractController{
     }
 
     public void rejectRequest(ActionEvent actionEvent) {
+        if (requestsTable.getSelectionModel().getSelectedItem() != null){
+            Request request = requestsTable.getSelectionModel().getSelectedItem();
+            String content = "Odrzucono prośbę zapisu na kurs: " + request.getGroup().getCourse().getName();
+            sendNotification(request.getStudent(), content);
+            removeRequest(request);
+            loadTable();
+        }
     }
 
 
