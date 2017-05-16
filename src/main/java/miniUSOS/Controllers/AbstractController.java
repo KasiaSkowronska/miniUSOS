@@ -129,6 +129,14 @@ public abstract class AbstractController {
         return courses;
     }
 
+    public List<Request> retrieveRequests() {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        List<Request> requests = em.createQuery("from Request").getResultList();
+        em.getTransaction().commit();
+        return requests;
+    }
+
     public List<Group> retrieveGroups(Student student) {
         EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();

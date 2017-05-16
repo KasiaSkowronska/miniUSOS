@@ -9,10 +9,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Request;
+import miniUSOS.Classes.Student;
 import miniUSOS.Context;
+import miniUSOS.Utils.PersistenceService;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -71,6 +74,13 @@ public class CoursePageController extends AbstractController {
     }
 
     public void sendRequest(){
+        Request request = new Request();
+        request.setStudent((Student) Context.getInstance().getLoggedUser());
+        request.setGroup(activeCourse.getGroups().get(0));
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(request);
+        em.getTransaction().commit();
 
     }
 

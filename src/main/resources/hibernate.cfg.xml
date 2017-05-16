@@ -6,7 +6,7 @@
   <session-factory>
     <!-- Database connection settings -->
     <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-    <property name="connection.url">jdbc:hsqldb:file:20170508usostable</property>
+    <property name="connection.url">jdbc:hsqldb:file:usostable</property>
     <property name="connection.username">sa</property>
     <property name="connection.password"></property>
 
@@ -25,8 +25,9 @@
     <mapping class="miniUSOS.Classes.Admin" />
     <mapping class="miniUSOS.Classes.Group" />
     <mapping class="miniUSOS.Classes.Course" />
+    <mapping class="miniUSOS.Classes.Request" />
     <mapping class="miniUSOS.Classes.Student" />
-    <!--<mapping class="miniUSOS.Classes.Request" />-->
+
 
   </session-factory>
 </hibernate-configuration>
