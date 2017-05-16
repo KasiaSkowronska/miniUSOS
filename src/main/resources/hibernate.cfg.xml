@@ -27,6 +27,7 @@
     <mapping class="miniUSOS.Classes.Course" />
     <mapping class="miniUSOS.Classes.Request" />
     <mapping class="miniUSOS.Classes.Student" />
+    <mapping class="miniUSOS.Classes.Notification" />
 
 
   </session-factory>

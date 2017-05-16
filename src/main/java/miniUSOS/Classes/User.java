@@ -1,6 +1,8 @@
 package miniUSOS.Classes;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by kosss on 08.05.2017.
@@ -22,6 +24,9 @@ public abstract class User {
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @OneToMany(targetEntity = Notification.class, mappedBy = "user", cascade = CascadeType.ALL)
+    protected List<Notification> notifications = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -46,4 +51,6 @@ public abstract class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

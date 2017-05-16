@@ -4,14 +4,18 @@ import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
-import miniUSOS.Classes.Request;
+import miniUSOS.Classes.*;
+import miniUSOS.Context;
+import miniUSOS.Utils.PersistenceService;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 /**
@@ -21,7 +25,7 @@ public class StaffScreenController extends AbstractController{
 
 
     public AnchorPane mainPane;
-    public TableView requestsTable;
+    public TableView<Request> requestsTable;
     public TableColumn<Request, String> studentCol;
     public TableColumn<Request, String> courseNameCol;
     public TableColumn<Request, String> groupNrCol;
@@ -63,4 +67,34 @@ public class StaffScreenController extends AbstractController{
             }});
 
     }
+
+    public void acceptRequest(ActionEvent actionEvent) {
+        if (requestsTable.getSelectionModel().getSelectedItem() != null){
+            Request request = requestsTable.getSelectionModel().getSelectedItem();
+            registerToCourse(request.getStudent(), request.getGroup());
+            String content = "Zapisano na kurs: " + request.getGroup().getCourse().getName();
+            sendNotification(request.getStudent(), content);
+            removeRequest(request);
+            loadTable();
+        }
+    }
+
+    public void rejectRequest(ActionEvent actionEvent) {
+    }
+
+
+    public void registerToCourse(Student student, Group group) {
+            EntityManager em = PersistenceService.getEntityManager();
+            PersistenceService.runTransactional(() -> {
+                Integer studentId = student.getId();
+                List<Student> students = em.createQuery("from Student where id=:studentId")
+                        .setParameter("studentId", studentId)
+                        .getResultList();
+                Student dbStudent = students.get(0);
+                dbStudent.getGroups().add(group);
+                em.persist(dbStudent);
+            });
+    }
+
+
 }

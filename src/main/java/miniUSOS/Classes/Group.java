@@ -109,6 +109,7 @@ public class Group {
     public String toString() {
         return "Gr." + String.valueOf(number) + " " +
                 type + " " +
+                tutor + " " +
                 time
                 ;
     }

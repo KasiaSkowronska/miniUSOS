@@ -104,6 +104,17 @@ public abstract class AbstractController {
         reload();
     }
 
+    public void sendNotification(User user, String content){
+        Notification notification = new Notification();
+        notification.setUser(user);
+        notification.setContent(content);
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        em.persist(notification);
+        em.getTransaction().commit();
+
+    }
+
 
     public List<Student> retrieveStudents() {
         EntityManager em = PersistenceService.getEntityManager();
@@ -137,6 +148,7 @@ public abstract class AbstractController {
         return requests;
     }
 
+    // KONIECZNIE POPRAWIĆ!!!!!
     public List<Group> retrieveGroups(Student student) {
         EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
@@ -147,6 +159,20 @@ public abstract class AbstractController {
         }
         em.getTransaction().commit();
         return studentGroups;
+    }
+
+    // KONIECZNIE POPRAWIĆ!!!!!
+    public List<Notification> retrieveNotifications(User user) {
+        EntityManager em = PersistenceService.getEntityManager();
+        em.getTransaction().begin();
+        List<Notification> notifications = em.createQuery("from Notification").getResultList();
+        List<Notification> userNotifications = new ArrayList<Notification>();
+        for (Notification notification : notifications){ // should rather be done in database query
+            if (notification.getUser().getId().equals(user.getId())) {
+                userNotifications.add(notification);}
+        }
+        em.getTransaction().commit();
+        return userNotifications;
     }
 
     public User retrieveUser(String username) {
@@ -173,12 +199,22 @@ public abstract class AbstractController {
         return l;
     }
 
+    // TO DO POPRAWIĆ
     public void removeCourse(Course course) {
         EntityManager em = PersistenceService.getEntityManager();
         PersistenceService.runTransactional(() -> {
-                    em.createQuery("delete from Course where name = " + course.getName()).getResultList();
+                    em.createQuery("delete from Course where name = " + course.getName()).executeUpdate();
                     });
         System.out.println("Usunięto + " + course.getName() + " lub wyskoczył błąd bazy danych");
+    }
+
+
+    public void removeRequest(Request request) {
+        EntityManager em = PersistenceService.getEntityManager();
+        PersistenceService.runTransactional(() -> {
+            em.createQuery("delete from Request where id = " + request.getId()).executeUpdate();
+        });
+        System.out.println("Usunięto + " + request.getId() + " lub wyskoczył błąd bazy danych");
     }
 
 

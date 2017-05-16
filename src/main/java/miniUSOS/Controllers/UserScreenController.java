@@ -43,6 +43,7 @@ public class UserScreenController extends AbstractController {
         mainField = mainPane;
         fxml = "/Screens/UserScreen.fxml";
         if (activeUser instanceof Student) {
+            System.out.println("tak");
             viewStudentCourses();
             setSchedule();
         }

@@ -66,9 +66,6 @@ public class DirectoryScreenController extends AbstractController {
         removeCourse(activeCourse);
     }
 
-    public void sendRequest(){
-
-    }
 
     public void test(MouseEvent mouseEvent) {
         Course kurs = courseTable.getSelectionModel().getSelectedItem();
