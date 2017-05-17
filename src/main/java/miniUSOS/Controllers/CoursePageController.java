@@ -2,6 +2,7 @@ package miniUSOS.Controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
@@ -16,6 +17,7 @@ import miniUSOS.Utils.PersistenceService;
 
 import javax.persistence.EntityManager;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +35,6 @@ public class CoursePageController extends AbstractController {
     public Label sylabusLabel;
     public VBox groupOptionsPane;
 
-
     private Course activeCourse;
 
 
@@ -44,7 +45,7 @@ public class CoursePageController extends AbstractController {
         fxml = "/Screens/CoursePage.fxml";
         activeCourse = Context.getInstance().getDirectoryContext();
         setLabels();
-        generateGroups();
+        generateGroupsBox();
 
     }
 
@@ -62,9 +63,9 @@ public class CoursePageController extends AbstractController {
         switchToDirectory();
     }
 
-    public void generateGroups(){
+    public void generateGroupsBox(){
         List<Group> groups = activeCourse.getGroups();
-        ToggleGroup toggle = new ToggleGroup();
+        ToggleGroup toggle = new ToggleGroup(); // ?? never used
         for (Group group : groups){
             CheckBox box = new CheckBox();
             box.setUserData(group);
@@ -73,18 +74,27 @@ public class CoursePageController extends AbstractController {
         }
     }
 
-    public void sendRequest(){
-        Request request = new Request();
-        request.setStudent((Student) Context.getInstance().getLoggedUser());
-        request.setGroup(activeCourse.getGroups().get(0));
-        EntityManager em = PersistenceService.getEntityManager();
-        em.getTransaction().begin();
-        em.persist(request);
-        em.getTransaction().commit();
-
+    public void sendRequests(){
+        List<Group> chosenGroups = getSelectedGroups();
+        for (Group chosenGroup : chosenGroups) {
+            Request request = new Request();
+            request.setStudent((Student) Context.getInstance().getLoggedUser());
+            request.setGroup(chosenGroup);
+            EntityManager em = PersistenceService.getEntityManager();
+            em.getTransaction().begin();
+            em.persist(request);
+            em.getTransaction().commit();
+        }
     }
 
-    public void getSelectedGroups(){
-        
+    private List<Group> getSelectedGroups() {
+        List<Group> chosenGroups = new ArrayList<>();
+        for (Node box : groupOptionsPane.getChildren()){
+            if (((CheckBox)box).isSelected()){
+                chosenGroups.add((Group)box.getUserData());
+            };
+        }
+        return chosenGroups;
     }
+
 }

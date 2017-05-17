@@ -52,6 +52,6 @@
             </ScrollPane>
          </children>
       </GridPane>
-      <Button layoutX="393.0" layoutY="547.0" mnemonicParsing="false" onAction="#sendRequest" text="%sendRequest" />
+      <Button layoutX="393.0" layoutY="547.0" mnemonicParsing="false" onAction="#sendRequests" text="%sendRequest" />
    </children>
 </AnchorPane>

@@ -148,29 +148,11 @@ public abstract class AbstractController {
         return requests;
     }
 
-    // KONIECZNIE POPRAWIĆ!!!!!
-    public List<Group> retrieveGroups(Student student) {
-        EntityManager em = PersistenceService.getEntityManager();
-        em.getTransaction().begin();
-        List<Group> groups = em.createQuery("from Group").getResultList();
-        List<Group> studentGroups = new ArrayList<Group>();
-        for (Group group : groups){ // should rather be done in database query
-            if (group.getStudents().contains(student)) studentGroups.add(group);
-        }
-        em.getTransaction().commit();
-        return studentGroups;
-    }
-
-    // KONIECZNIE POPRAWIĆ!!!!!
     public List<Notification> retrieveNotifications(User user) {
         EntityManager em = PersistenceService.getEntityManager();
         em.getTransaction().begin();
-        List<Notification> notifications = em.createQuery("from Notification").getResultList();
-        List<Notification> userNotifications = new ArrayList<Notification>();
-        for (Notification notification : notifications){ // should rather be done in database query
-            if (notification.getUser().getId().equals(user.getId())) {
-                userNotifications.add(notification);}
-        }
+        List<Notification> userNotifications = em.createQuery(
+                "from Notification where user=:user").setParameter("user", user).getResultList();
         em.getTransaction().commit();
         return userNotifications;
     }
