@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.UserScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.UserScreenController">
    <children>
       <Pane prefHeight="93.0" prefWidth="724.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -46,7 +46,7 @@
       </MenuBar>
       <BorderPane layoutX="35.0" layoutY="129.0" prefHeight="375.0" prefWidth="410.0" styleClass="profile-pane">
          <top>
-            <Pane prefHeight="36.0" prefWidth="200.0" styleClass="up-pane" BorderPane.alignment="CENTER">
+            <Pane fx:id="coursesPane" prefHeight="36.0" prefWidth="200.0" styleClass="up-pane" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="14.0" layoutY="8.0" styleClass="widget-header" text="%myCourses" />
                </children>
@@ -64,14 +64,14 @@
       </BorderPane>
       <BorderPane layoutX="523.0" layoutY="129.0" prefHeight="93.0" prefWidth="173.0" styleClass="profile-pane">
          <top>
-            <Pane prefHeight="36.0" prefWidth="200.0" styleClass="up-pane" BorderPane.alignment="CENTER">
+            <Pane fx:id="schedulePane" prefHeight="36.0" prefWidth="200.0" styleClass="up-pane" BorderPane.alignment="CENTER">
                <children>
                   <Label layoutX="14.0" layoutY="8.0" styleClass="widget-header" text="%schedule" />
                </children>
             </Pane>
          </top>
          <center>
-            <TableView prefHeight="107.0" prefWidth="355.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="scheduleTable" prefHeight="107.0" prefWidth="355.0" BorderPane.alignment="CENTER">
               <columns>
                   <TableColumn fx:id="hourCol" prefWidth="45.0" text="%hour" />
                 <TableColumn fx:id="moCol" prefWidth="75.0" text="%monday" />
@@ -83,5 +83,6 @@
             </TableView>
          </center>
       </BorderPane>
+      <Button fx:id="reportButton" layoutX="523.0" layoutY="245.0" mnemonicParsing="false" text="\%sendReport" />
    </children>
 </AnchorPane>

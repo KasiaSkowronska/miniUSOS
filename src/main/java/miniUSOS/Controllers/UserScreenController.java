@@ -3,10 +3,13 @@ package miniUSOS.Controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import miniUSOS.Classes.Group;
 import miniUSOS.Classes.Lecturer;
 import miniUSOS.Classes.Student;
@@ -14,6 +17,7 @@ import miniUSOS.Classes.User;
 import miniUSOS.Context;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class UserScreenController extends AbstractController {
@@ -32,6 +36,10 @@ public class UserScreenController extends AbstractController {
     public TableColumn courseCol;
     public TableColumn groupIDCol;
     public TableColumn timeCol;
+    public Button reportButton;
+    public Pane schedulePane;
+    public Pane coursesPane;
+    public TableView scheduleTable;
 
     protected String activeGroup;
     public User activeUser = Context.getInstance().getLoggedUser();
@@ -43,7 +51,6 @@ public class UserScreenController extends AbstractController {
         mainField = mainPane;
         fxml = "/Screens/UserScreen.fxml";
         if (activeUser instanceof Student) {
-            System.out.println("tak");
             viewStudentCourses();
             setSchedule();
         }
@@ -51,7 +58,8 @@ public class UserScreenController extends AbstractController {
             viewLecturerCourses();
             setSchedule();
         }
-
+        setOnlyLecturerContent(new ArrayList<Node>(Arrays.asList(reportButton)));
+        setNotAdminContent(new ArrayList<Node>(Arrays.asList(schedulePane, coursesPane, scheduleTable, userCourseTable)));
     }
 
     private void viewLecturerCourses() {

@@ -5,6 +5,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.AccessibleRole;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,6 +17,7 @@ import miniUSOS.Classes.Course;
 import miniUSOS.Context;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -27,6 +30,12 @@ public class DirectoryScreenController extends AbstractController {
     public TableColumn<Course, String> idCol;
     public TableColumn<Course, String> courseCol;
     public TableColumn<Course, String> facultyCol;
+    public Label adminCoursesLabel;
+    public Label lecturerCoursesLabel;
+    public Label avalibleCoursesLabel;
+    public Button registerButton;
+    public Button removeCourseButton;
+    public Button addCourseButton;
 
     private Course activeCourse;
     private ObservableList<Course> data;
@@ -35,9 +44,11 @@ public class DirectoryScreenController extends AbstractController {
     public void initialize() {
         mainField = mainPane;
         fxml = "/Screens/DirectoryScreen.fxml";
-
         setTableProperty();
         loadTable();
+        setOnlyStudentContent(Arrays.asList(registerButton, avalibleCoursesLabel));
+        setOnlyLecturerContent(Arrays.asList(lecturerCoursesLabel));
+        setOnlyAdminContent(Arrays.asList(removeCourseButton, addCourseButton, adminCoursesLabel));
     }
 
 

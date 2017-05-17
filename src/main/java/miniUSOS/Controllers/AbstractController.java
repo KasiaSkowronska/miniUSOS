@@ -2,6 +2,7 @@ package miniUSOS.Controllers;
 
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -226,4 +227,35 @@ public abstract class AbstractController {
         Context.getInstance().setLoggedUser(null);
         switchToLogging();
     }
+
+    public void setOnlyLecturerContent(List<Node> nodes){
+        for (Node node : nodes){
+            if (!(Context.getInstance().getLoggedUser() instanceof Lecturer)){
+                node.setVisible(false);
+            }
+        }
+    }
+    public void setOnlyStudentContent(List<Node> nodes){
+        for (Node node : nodes){
+            if (!(Context.getInstance().getLoggedUser() instanceof Student)){
+                node.setVisible(false);
+            }
+        }
+    }
+    public void setOnlyAdminContent(List<Node> nodes){
+        for (Node node : nodes){
+            if (!(Context.getInstance().getLoggedUser() instanceof Admin)){
+                node.setVisible(false);
+            }
+        }
+    }
+
+    public void setNotAdminContent(List<Node> nodes){
+        for (Node node : nodes){
+            if (Context.getInstance().getLoggedUser() instanceof Admin){
+                node.setVisible(false);
+            }
+        }
+    }
+
 }

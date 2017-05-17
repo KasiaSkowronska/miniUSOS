@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.StaffScreenController">
+<AnchorPane fx:id="mainPane" prefHeight="540.0" prefWidth="724.0" styleClass="background" stylesheets="@../Theme.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="miniUSOS.Controllers.StaffScreenController">
    <children>
       <Pane prefHeight="93.0" prefWidth="724.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -45,11 +45,11 @@
       </MenuBar>
       <AnchorPane layoutX="38.0" layoutY="131.0" prefHeight="245.0" prefWidth="649.0" styleClass="profile-pane">
          <children>
-            <Pane layoutX="4.0" layoutY="4.0" prefHeight="39.0" prefWidth="196.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Pane fx:id="requestPane" layoutX="4.0" layoutY="4.0" prefHeight="39.0" prefWidth="196.0" styleClass="up-pane" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <Label layoutX="14.0" layoutY="10.0" styleClass="widget-header" text="%requests" />
-                  <Button layoutX="349.0" layoutY="7.0" mnemonicParsing="false" onAction="#acceptRequest" text="%acceptRequest" />
-                  <Button layoutX="480.0" layoutY="7.0" mnemonicParsing="false" onAction="#rejectRequest" text="%rejectRequest" />
+                  <Button fx:id="acceptButton" layoutX="349.0" layoutY="7.0" mnemonicParsing="false" onAction="#acceptRequest" text="%acceptRequest" />
+                  <Button fx:id="rejestButton" layoutX="480.0" layoutY="7.0" mnemonicParsing="false" onAction="#rejectRequest" text="%rejectRequest" />
                </children>
             </Pane>
             <TableView fx:id="requestsTable" layoutX="2.0" layoutY="41.0" prefHeight="200.0" prefWidth="645.0">
