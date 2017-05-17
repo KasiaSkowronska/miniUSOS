@@ -74,11 +74,11 @@
                         <Label text="%day" GridPane.rowIndex="3" />
                         <Label text="%tutor" GridPane.rowIndex="2" />
                         <Label text="%groupType" GridPane.rowIndex="1" />
-                        <TextField fx:id="groupTutorField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Label text="%hour" GridPane.rowIndex="4" />
                         <ComboBox fx:id="hourBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                         <ComboBox fx:id="groupTypeBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <ComboBox fx:id="dayBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <ComboBox fx:id="groupTutorBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                   <Button layoutX="230.0" layoutY="406.0" mnemonicParsing="false" onAction="#removeGroup" text="%removeGroup" />

@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import miniUSOS.Classes.Course;
 import miniUSOS.Classes.Group;
+import miniUSOS.Classes.Lecturer;
 import miniUSOS.Utils.PersistenceService;
 import miniUSOS.Classes.Student;
 
@@ -33,7 +34,7 @@ public class NewCourseController extends AbstractController {
     // GROUP PROPERTIES
     public TextField groupNoField;
     public ComboBox groupTypeBox;
-    public TextField groupTutorField;
+    public ComboBox groupTutorBox;
     public ComboBox dayBox;
     public ComboBox hourBox;
     public ListView<Group> groupList;
@@ -72,10 +73,11 @@ public class NewCourseController extends AbstractController {
         Group group = new Group();
         group.setNumber(Integer.parseInt(groupNoField.getText()));
         group.setType((String) groupTypeBox.getSelectionModel().getSelectedItem());
-        group.setTutor(groupTutorField.getText());
+        Lecturer tutor = (Lecturer) ((Label) (groupTutorBox.getSelectionModel().getSelectedItem())).getUserData();
+        group.setLecturer(tutor);
         String time = dayBox.getSelectionModel().getSelectedItem() + " " + hourBox.getSelectionModel().getSelectedItem();
         group.setTime(time);
-        group.setStudents(new ArrayList<Student>());
+        group.setStudents(new ArrayList<>());
         group.setCourse(newCourse);
 
         groupList.getItems().add(group);
@@ -98,6 +100,14 @@ public class NewCourseController extends AbstractController {
         dayBox.getItems().add("CZW");
         dayBox.getItems().add("PT");
 
+        List<Lecturer> lecturers = retrieveLecturers();
+        for (Lecturer lecturer : lecturers){
+            Label label = new Label();
+            label.setUserData(lecturer);
+            label.setText(lecturer.getName());
+            groupTutorBox.getItems().add(label);
+        }
+
         for (int i = 8; i < 18; i++){
             String hour = String.valueOf(i) + ":00";
             hourBox.getItems().add(hour);
@@ -113,7 +123,7 @@ public class NewCourseController extends AbstractController {
                 if (empty || item == null || item.getNumber() == null) {
                     setText(null);
                 } else {
-                    String text = "gr: " + String.valueOf(item.getNumber()) + ", " + item.getType() + ", " + item.getTutor();;
+                    String text = "gr: " + String.valueOf(item.getNumber()) + ", " + item.getType() + ", " + item.getLecturer().getName();;
                     setText(text);
                 }
             }
@@ -123,7 +133,7 @@ public class NewCourseController extends AbstractController {
     public void clearGroupFields(){
         groupNoField.clear();
         groupTypeBox.getSelectionModel().clearSelection();
-        groupTutorField.clear();
+        groupTutorBox.getSelectionModel().clearSelection();
         dayBox.getSelectionModel().clearSelection();
         hourBox.getSelectionModel().clearSelection();
     }

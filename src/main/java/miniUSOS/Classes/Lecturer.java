@@ -22,10 +22,7 @@ public class Lecturer extends User {
         this.groups = groups;
     }
 
-    @ManyToMany(targetEntity = Group.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(name = "GROUP_LECTURERS",
-            joinColumns = @JoinColumn(name="lecturer_id"),
-            inverseJoinColumns = @JoinColumn(name = "group_id"))
+    @OneToMany(targetEntity = Group.class, mappedBy = "lecturer", cascade = CascadeType.ALL)
     protected Set<Group> groups = new HashSet<>();
 
 }

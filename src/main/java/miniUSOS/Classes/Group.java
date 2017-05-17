@@ -8,7 +8,7 @@ import java.util.List;
  * Created by kosss on 19.04.2017.
  */
 
-// ID NUMBER TYPE TUTOR TIME
+// ID NUMBER TYPE TIME
 
 @Entity
 @Table(name="GROUPS")
@@ -25,9 +25,6 @@ public class Group {
     @Column(name = "type")
     protected String type;
 
-    @Column(name = "tutor")
-    protected String tutor;
-
     @Column(name = "time")
     protected String time;
 
@@ -37,20 +34,22 @@ public class Group {
         inverseJoinColumns = @JoinColumn(name = "student_id"))
     protected List<Student> students = new ArrayList<>();
 
-    @ManyToMany(targetEntity = User.class, cascade = CascadeType.ALL)
-    @JoinTable(name = "GROUP_LECTURERS",
-            joinColumns = @JoinColumn(name="group_id"),
-            inverseJoinColumns = @JoinColumn(name = "lecturer_id"))
-    protected List<Lecturer> lecturers = new ArrayList<>();
+//    @ManyToMany(targetEntity = User.class, cascade = CascadeType.ALL)
+//    @JoinTable(name = "GROUP_LECTURERS",
+//            joinColumns = @JoinColumn(name="group_id"),
+//            inverseJoinColumns = @JoinColumn(name = "lecturer_id"))
+//    protected List<Lecturer> lecturers = new ArrayList<>();
 
     @ManyToOne(targetEntity = Course.class, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(name = "COURSE")
     protected Course course;
 
+    @ManyToOne(targetEntity = Lecturer.class, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "LECTURER")
+    protected Lecturer lecturer;
+
     @OneToMany(targetEntity = Request.class, mappedBy = "group", cascade = CascadeType.ALL)
     protected List<Request> requests = new ArrayList<>();
-
-
 
     public Integer getId() {
         return id;
@@ -80,14 +79,6 @@ public class Group {
         this.number = number;
     }
 
-    public String getTutor() {
-        return tutor;
-    }
-
-    public void setTutor(String tutor) {
-        this.tutor = tutor;
-    }
-
     public String getType() {
         return type;
     }
@@ -109,7 +100,7 @@ public class Group {
     public String toString() {
         return "Gr." + String.valueOf(number) + " " +
                 type + " " +
-                tutor + " " +
+                lecturer.getName() + " " +
                 time
                 ;
     }
@@ -122,5 +113,20 @@ public class Group {
         this.course = course;
     }
 
+    public Lecturer getLecturer() {
+        return lecturer;
+    }
+
+    public void setLecturer(Lecturer lecturer) {
+        this.lecturer = lecturer;
+    }
+
+    public List<Request> getRequests() {
+        return requests;
+    }
+
+    public void setRequests(List<Request> requests) {
+        this.requests = requests;
+    }
 
 }
