@@ -2,11 +2,10 @@ package miniUSOS.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -116,4 +115,13 @@ public class UserScreenController extends AbstractController {
 }
 
 
+    public void sendReport(ActionEvent actionEvent) {
+        showTimeAlert();
+    }
+
+    private void showTimeAlert() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION, "Protocols open: 10.06.2017",
+                ButtonType.OK, ButtonType.FINISH, ButtonType.CANCEL);
+        alert.showAndWait();
+    }
 }

@@ -83,6 +83,6 @@
             </TableView>
          </center>
       </BorderPane>
-      <Button fx:id="reportButton" layoutX="523.0" layoutY="245.0" mnemonicParsing="false" text="\%sendReport" />
+      <Button fx:id="reportButton" onAction="#sendReport" layoutX="523.0" layoutY="245.0" mnemonicParsing="false" text="\%sendReport" />
    </children>
 </AnchorPane>

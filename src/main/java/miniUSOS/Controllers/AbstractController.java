@@ -193,7 +193,7 @@ public abstract class AbstractController {
     public void removeCourse(Course course) {
         EntityManager em = PersistenceService.getEntityManager();
         PersistenceService.runTransactional(() -> {
-                    em.createQuery("delete from Course where name = " + course.getName()).executeUpdate();
+                    em.createQuery("delete from Course where id=:id").setParameter("id", course.getId()).executeUpdate();
                     });
         System.out.println("Usunięto + " + course.getName() + " lub wyskoczył błąd bazy danych");
     }
